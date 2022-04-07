@@ -22,13 +22,14 @@ public class Bullet : MonoBehaviour
         lifeTimer -= Time.deltaTime;
         if (lifeTimer <= 0)
         {
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
 
     }
     private void FixedUpdate()
     {
-        transform.position += transform.forward * speed * Time.fixedDeltaTime;
+        //transform.localPosition += transform.forward * speed * Time.fixedDeltaTime;
+        transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
     private void OnTriggerEnter(Collider other)
     {
