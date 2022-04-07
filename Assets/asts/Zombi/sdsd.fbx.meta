@@ -38,8 +38,8 @@ ModelImporter:
       name: Armature|Armature|Armature|walked_Armature|Armature|walked_Armature
       takeName: Armature|Armature|Armature|walked_Armature|Armature|walked_Armature
       internalID: 0
-      firstFrame: 0
-      lastFrame: 154
+      firstFrame: 167
+      lastFrame: 177
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
