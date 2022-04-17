@@ -4,14 +4,25 @@ using UnityEngine;
 
 public class Bullet_Spawn : MonoBehaviour
 {
+    #region
 
-    public GameObject bullet_Uzi;
     public float speed;
     public float lifeTime;
     public GameObject bulletOrigin;
+    public GameObject bullet_Uzi;
+    public GameObject Enemy;
     public Rigidbody bullet;
-    // Start is called before the first frame update
 
+    #endregion
+
+
+    public void OnCollisionEnter(Collision otherObj)
+    {
+        if (otherObj.gameObject.tag == "Enemy")
+        {
+            Destroy(gameObject, .5f);
+        }
+    }
 
     public void Shoot()
     {
@@ -20,10 +31,6 @@ public class Bullet_Spawn : MonoBehaviour
         bullet_Instance.transform.parent = null;
 
         StartCoroutine(BulletDestroy(bullet_Instance, lifeTime));
-
-       
-
-
 
     }
 
