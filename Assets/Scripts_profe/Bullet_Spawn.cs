@@ -20,7 +20,7 @@ public class Bullet_Spawn : MonoBehaviour
     {
         if (otherObj.gameObject.tag == "Enemy")
         {
-            Destroy(gameObject, .5f);
+            Destroy(gameObject, 0.5f);
         }
     }
 
