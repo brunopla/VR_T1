@@ -6,7 +6,8 @@ public class BulletToDoDamage : MonoBehaviour
 {
     public void OnCollisionEnter(Collision otherObj)
     {
-      if(!otherObj.gameObject.CompareTag("Gun"))
+      if(!
+            otherObj.gameObject.CompareTag("Gun"))
         {
             Destroy(gameObject);
         }

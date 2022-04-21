@@ -1474,7 +1474,19 @@ MonoBehaviour:
   m_CustomReticle: {fileID: 0}
   m_FirstHoverEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 919132149019207458}
+        m_TargetAssemblyTypeName: ThorHammer, Assembly-CSharp
+        m_MethodName: Throw
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_LastHoverExited:
     m_PersistentCalls:
       m_Calls: []
@@ -1605,13 +1617,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 918900323}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: -6.58, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 543450652670311834}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1001 &927177843
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1804,7 +1816,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1098130324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2648,6 +2660,11 @@ Transform:
   m_Father: {fileID: 1733795888}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!4 &1627471787 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4477640020470788096, guid: 0a1e3056a58308348879b0c1033a3b6f, type: 3}
+  m_PrefabInstance: {fileID: 4477640022285963345}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1697382210
 GameObject:
   m_ObjectHideFlags: 0
@@ -3637,7 +3654,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6598815579406187037, guid: 9f5a24a380916d14db9775daab4fe333, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f5a24a380916d14db9775daab4fe333, type: 3}
@@ -4170,6 +4187,7 @@ GameObject:
   - component: {fileID: 752325430}
   - component: {fileID: 752325429}
   - component: {fileID: 919132149019207457}
+  - component: {fileID: 919132149019207458}
   m_Layer: 0
   m_Name: 'thor hammer '
   m_TagString: Untagged
@@ -4190,6 +4208,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.1179194, y: 11.161425, z: 1}
   m_Center: {x: -0.19654155, y: -3.9690528, z: 0}
+--- !u!114 &919132149019207458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132149019207456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1242c7f3c3bf1c48898716ec3b2f9d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  throwForce: 0
+  target: {fileID: 1627471787}
+  curve_point: {fileID: 0}
 --- !u!4 &938785754007790939
 Transform:
   m_ObjectHideFlags: 0
@@ -6582,7 +6615,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!195 &5270637996970764301
 NavMeshAgent:
   m_ObjectHideFlags: 0
