@@ -11,18 +11,13 @@ public class Bullet_Spawn : MonoBehaviour
     public GameObject bulletOrigin;
     public GameObject bullet_Uzi;
     public GameObject Enemy;
-    public Rigidbody bullet;
+    
 
     #endregion
 
 
-    public void OnCollisionEnter(Collision otherObj)
-    {
-        if (otherObj.gameObject.tag == "Enemy")
-        {
-            Destroy(gameObject, 0.5f);
-        }
-    }
+   
+
 
     public void Shoot()
     {

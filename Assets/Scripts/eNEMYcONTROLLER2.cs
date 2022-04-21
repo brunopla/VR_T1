@@ -7,11 +7,6 @@ public class eNEMYcONTROLLER2 : MonoBehaviour
 {
 
     public Transform target;
-    
-
-
-
-  
  
     float distanceToTarget;
 
@@ -22,6 +17,7 @@ public class eNEMYcONTROLLER2 : MonoBehaviour
     public float distanceToChase = 3f;
     public float chaseInterval = 2f;
     float chaseTime;
+
     //  public ParticleSystem particle;
     WaitForSeconds wait;
     void Start()
@@ -30,9 +26,22 @@ public class eNEMYcONTROLLER2 : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
 
         chaseTime = chaseInterval;
-        
-        // wait = new WaitForSeconds(particle.main.duration);
 
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Bullet"))
+        {
+            life--;
+            if (life <= 0 )
+            {
+                Destroy(gameObject);
+
+            }
+        }
+
+        
     }
 
     public bool DoDamage(int vld, bool isPlayer)
@@ -67,14 +76,9 @@ public class eNEMYcONTROLLER2 : MonoBehaviour
         transform.LookAt(posNoRot);
         distanceToTarget = Vector3.Distance(transform.position, target.position);
 
-
-
         Chase();
 
     }
-
-
-
     void Chase()
     {
         chaseTime -= Time.deltaTime;

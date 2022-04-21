@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 7150140617218414245}
   - component: {fileID: 2849619330244315076}
   - component: {fileID: 4739231870950758045}
+  - component: {fileID: -7352090096488450634}
   m_Layer: 0
   m_Name: UZI_Bullet
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78,6 +79,18 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &-7352090096488450634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2364554452822956016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1810015a826e969408fae477c1280563, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2364554453702010365
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -88,18 +101,6 @@ PrefabInstance:
     - target: {fileID: 1266020894484468767, guid: bae40c8b9cc6baf499c324353eb4d115, type: 3}
       propertyPath: m_RootOrder
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1266020894484468767, guid: bae40c8b9cc6baf499c324353eb4d115, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1266020894484468767, guid: bae40c8b9cc6baf499c324353eb4d115, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 1266020894484468767, guid: bae40c8b9cc6baf499c324353eb4d115, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1266020894484468767, guid: bae40c8b9cc6baf499c324353eb4d115, type: 3}
       propertyPath: m_LocalPosition.x
