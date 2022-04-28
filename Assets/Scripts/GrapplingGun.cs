@@ -6,7 +6,7 @@ public class GrapplingGun : MonoBehaviour
 
     private LineRenderer lr; 
     
-    private float maxDistance = 100f;
+    public float maxDistance = 100f;
     private SpringJoint joint;
 
     public Transform pivotStartPoint;
