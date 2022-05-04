@@ -14,6 +14,8 @@ public class eNEMYcONTROLLER2 : MonoBehaviour
 
     NavMeshAgent agent;
 
+    Animator anim;
+
     public float distanceToChase = 3f;
     public float chaseInterval = 2f;
     float chaseTime;
@@ -26,6 +28,8 @@ public class eNEMYcONTROLLER2 : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
 
         chaseTime = chaseInterval;
+
+        anim = GetComponent<Animator>();
 
     }
 
@@ -89,8 +93,18 @@ public class eNEMYcONTROLLER2 : MonoBehaviour
                 agent.SetDestination(target.position);
                 agent.stoppingDistance = distanceToChase;
                 chaseTime = chaseInterval;
+                
+            }
+            else
+            {
+                Attack();
             }
         }
+    }
+
+    void Attack()
+    {
+        anim.Play("Attack");
     }
 
 
