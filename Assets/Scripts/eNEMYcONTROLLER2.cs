@@ -16,11 +16,11 @@ public class eNEMYcONTROLLER2 : MonoBehaviour
 
     Animator anim;
 
+
     public float distanceToChase = 3f;
     public float chaseInterval = 2f;
     float chaseTime;
-
-    //  public ParticleSystem particle;
+     public ParticleSystem particle;
     WaitForSeconds wait;
     void Start()
     {
@@ -30,6 +30,8 @@ public class eNEMYcONTROLLER2 : MonoBehaviour
         chaseTime = chaseInterval;
 
         anim = GetComponent<Animator>();
+
+        wait = new WaitForSeconds(particle.main.duration);
 
     }
 
@@ -50,7 +52,7 @@ public class eNEMYcONTROLLER2 : MonoBehaviour
 
     public bool DoDamage(int vld, bool isPlayer)
     {
-        Debug.Log("HE RECIBIDO DAÑO = " + vld + " isPlayer  =  " + isPlayer);
+        Debug.Log("HE RECIBIDO DAï¿½O = " + vld + " isPlayer  =  " + isPlayer);
         if (isPlayer == true)
         {
             life -= vld;
@@ -66,9 +68,9 @@ public class eNEMYcONTROLLER2 : MonoBehaviour
 
     IEnumerator Die()
     {
-        //particle.Play();
+        particle.Play();
         yield return wait;
-        GameManager.instance.AddEnemyKill();
+       // GameManager.instance.AddEnemyKill();
         Destroy(gameObject);
 
     }
