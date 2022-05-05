@@ -20,7 +20,8 @@ public class eNEMYcONTROLLER2 : MonoBehaviour
     public float distanceToChase = 3f;
     public float chaseInterval = 2f;
     float chaseTime;
-     public ParticleSystem particle;
+    public GameObject particle;
+    public Transform originParticlePoint;
     WaitForSeconds wait;
     void Start()
     {
@@ -31,7 +32,7 @@ public class eNEMYcONTROLLER2 : MonoBehaviour
 
         anim = GetComponent<Animator>();
 
-        wait = new WaitForSeconds(particle.main.duration);
+       
 
     }
 
@@ -40,6 +41,7 @@ public class eNEMYcONTROLLER2 : MonoBehaviour
         if(collision.gameObject.CompareTag("Bullet"))
         {
             life--;
+            Instantiate(particle, originParticlePoint.position, Quaternion.identity);
             if (life <= 0 )
             {
                 Destroy(gameObject);
@@ -68,7 +70,7 @@ public class eNEMYcONTROLLER2 : MonoBehaviour
 
     IEnumerator Die()
     {
-        particle.Play();
+        
         yield return wait;
        // GameManager.instance.AddEnemyKill();
         Destroy(gameObject);
