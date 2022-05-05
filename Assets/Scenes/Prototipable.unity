@@ -947,7 +947,7 @@ Transform:
   m_GameObject: {fileID: 345858562}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.8109188, y: 6.79, z: 4.76}
-  m_LocalScale: {x: 9.3075, y: 9.3075, z: 9.3075}
+  m_LocalScale: {x: 21.248093, y: 21.248093, z: 21.248093}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 13
@@ -1062,14 +1062,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1772721001}
-    - target: {fileID: 8767371646026844912, guid: 563841955bb34564990afab92019a73d, type: 3}
-      propertyPath: particle
-      value: 
-      objectReference: {fileID: 1834194341294532, guid: d5f26854a8904624c8073139cd2eb346, type: 3}
-    - target: {fileID: 8767371646026844912, guid: 563841955bb34564990afab92019a73d, type: 3}
-      propertyPath: originParticlePoint
-      value: 
-      objectReference: {fileID: 454893693}
     - target: {fileID: 9088632875155246787, guid: 563841955bb34564990afab92019a73d, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -1116,11 +1108,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 563841955bb34564990afab92019a73d, type: 3}
---- !u!4 &454893693 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5942951116091914944, guid: 563841955bb34564990afab92019a73d, type: 3}
-  m_PrefabInstance: {fileID: 454893692}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &477103571
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1189,21 +1176,9 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1772721001}
-    - target: {fileID: 1768675843309347205, guid: bc199455a25e0a041af95adef8044727, type: 3}
-      propertyPath: particle
-      value: 
-      objectReference: {fileID: 1834194341294532, guid: d5f26854a8904624c8073139cd2eb346, type: 3}
-    - target: {fileID: 1768675843309347205, guid: bc199455a25e0a041af95adef8044727, type: 3}
-      propertyPath: originParticlePoint
-      value: 
-      objectReference: {fileID: 547151387}
     - target: {fileID: 3433529918026768292, guid: bc199455a25e0a041af95adef8044727, type: 3}
       propertyPath: m_Name
       value: zombiegirl_w_kurniawan (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3433529918026768292, guid: bc199455a25e0a041af95adef8044727, type: 3}
-      propertyPath: m_TagString
-      value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 4886180387039648973, guid: bc199455a25e0a041af95adef8044727, type: 3}
       propertyPath: m_RootOrder
@@ -1251,11 +1226,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bc199455a25e0a041af95adef8044727, type: 3}
---- !u!4 &547151387 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5811382785799581120, guid: bc199455a25e0a041af95adef8044727, type: 3}
-  m_PrefabInstance: {fileID: 547151386}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &647861449 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3776582384227224234, guid: e1fd843950861a44abd61affbd3e015f, type: 3}
@@ -1467,14 +1437,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1772721001}
-    - target: {fileID: 3739013355072813528, guid: e1fd843950861a44abd61affbd3e015f, type: 3}
-      propertyPath: particle
-      value: 
-      objectReference: {fileID: 1834194341294532, guid: d5f26854a8904624c8073139cd2eb346, type: 3}
-    - target: {fileID: 3739013355072813528, guid: e1fd843950861a44abd61affbd3e015f, type: 3}
-      propertyPath: originParticlePoint
-      value: 
-      objectReference: {fileID: 713658495}
     - target: {fileID: 3776582384227224234, guid: e1fd843950861a44abd61affbd3e015f, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1525,11 +1487,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1fd843950861a44abd61affbd3e015f, type: 3}
---- !u!4 &713658495 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1743394796110036649, guid: e1fd843950861a44abd61affbd3e015f, type: 3}
-  m_PrefabInstance: {fileID: 713658494}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &721896409
 GameObject:
   m_ObjectHideFlags: 0
@@ -2086,14 +2043,6 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1772721001}
-    - target: {fileID: 1385334638217477430, guid: 432663799af0eef4a81b5376ddae93bf, type: 3}
-      propertyPath: particle
-      value: 
-      objectReference: {fileID: 1834194341294532, guid: d5f26854a8904624c8073139cd2eb346, type: 3}
-    - target: {fileID: 1385334638217477430, guid: 432663799af0eef4a81b5376ddae93bf, type: 3}
-      propertyPath: originParticlePoint
-      value: 
-      objectReference: {fileID: 1073418951}
     - target: {fileID: 1491549087224968684, guid: 432663799af0eef4a81b5376ddae93bf, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -2144,11 +2093,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 432663799af0eef4a81b5376ddae93bf, type: 3}
---- !u!4 &1073418951 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4101615985094656495, guid: 432663799af0eef4a81b5376ddae93bf, type: 3}
-  m_PrefabInstance: {fileID: 1073418950}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1128884257
 GameObject:
   m_ObjectHideFlags: 0
@@ -2807,25 +2751,12 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1772721001}
-    - target: {fileID: 8474728986646477389, guid: 5b0184d46a47aec47b310d0c0f429134, type: 3}
-      propertyPath: particle
-      value: 
-      objectReference: {fileID: 1834194341294532, guid: d5f26854a8904624c8073139cd2eb346, type: 3}
-    - target: {fileID: 8474728986646477389, guid: 5b0184d46a47aec47b310d0c0f429134, type: 3}
-      propertyPath: originParticlePoint
-      value: 
-      objectReference: {fileID: 1962478726}
     - target: {fileID: 8745182117244603285, guid: 5b0184d46a47aec47b310d0c0f429134, type: 3}
       propertyPath: m_Name
       value: girlscout_t_masuyama (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b0184d46a47aec47b310d0c0f429134, type: 3}
---- !u!4 &1962478726 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6795410250187760940, guid: 5b0184d46a47aec47b310d0c0f429134, type: 3}
-  m_PrefabInstance: {fileID: 1962478725}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1963267597
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2835,18 +2766,6 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1688997794570976677, guid: 3d2c0cf7feefd484eb83f07edf4e2db2, type: 3}
       propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1688997794570976677, guid: 3d2c0cf7feefd484eb83f07edf4e2db2, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1688997794570976677, guid: 3d2c0cf7feefd484eb83f07edf4e2db2, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 1688997794570976677, guid: 3d2c0cf7feefd484eb83f07edf4e2db2, type: 3}
-      propertyPath: m_LocalScale.z
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1688997794570976677, guid: 3d2c0cf7feefd484eb83f07edf4e2db2, type: 3}
@@ -2889,10 +2808,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1894861273165339164, guid: 3d2c0cf7feefd484eb83f07edf4e2db2, type: 3}
-      propertyPath: m_Speed
-      value: 0.6
-      objectReference: {fileID: 0}
     - target: {fileID: 2034314383154374431, guid: 3d2c0cf7feefd484eb83f07edf4e2db2, type: 3}
       propertyPath: m_Name
       value: skeletonzombie_t_avelange
@@ -2901,21 +2816,8 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1772721001}
-    - target: {fileID: 7532835234244256085, guid: 3d2c0cf7feefd484eb83f07edf4e2db2, type: 3}
-      propertyPath: particle
-      value: 
-      objectReference: {fileID: 1834194341294532, guid: d5f26854a8904624c8073139cd2eb346, type: 3}
-    - target: {fileID: 7532835234244256085, guid: 3d2c0cf7feefd484eb83f07edf4e2db2, type: 3}
-      propertyPath: originParticlePoint
-      value: 
-      objectReference: {fileID: 1963267598}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d2c0cf7feefd484eb83f07edf4e2db2, type: 3}
---- !u!4 &1963267598 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4262748806907005350, guid: 3d2c0cf7feefd484eb83f07edf4e2db2, type: 3}
-  m_PrefabInstance: {fileID: 1963267597}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1986484894
 GameObject:
   m_ObjectHideFlags: 0

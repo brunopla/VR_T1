@@ -759,7 +759,7 @@ GameObject:
   - component: {fileID: 3739013355072813529}
   - component: {fileID: 3739013355072813528}
   m_Layer: 0
-  m_Name: prisoner_b_styperek
+  m_Name: Z_prisioner
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -773,7 +773,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4549424007009325072}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.8300385, y: 8.139999, z: 6.8570766}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3752057069083348387}
@@ -852,6 +852,8 @@ MonoBehaviour:
   life: 5
   distanceToChase: 3
   chaseInterval: 2
+  particle: {fileID: 1834194341294532, guid: d5f26854a8904624c8073139cd2eb346, type: 3}
+  originParticlePoint: {fileID: 1743394796110036649}
 --- !u!1 &4697636754393883679
 GameObject:
   m_ObjectHideFlags: 0
