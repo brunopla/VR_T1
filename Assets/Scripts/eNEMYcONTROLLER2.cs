@@ -32,7 +32,7 @@ public class eNEMYcONTROLLER2 : MonoBehaviour
 
         anim = GetComponent<Animator>();
 
-       
+        target = GameObject.FindGameObjectWithTag("Player").transform; 
 
     }
 
