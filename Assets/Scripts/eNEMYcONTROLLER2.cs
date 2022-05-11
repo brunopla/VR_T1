@@ -16,11 +16,12 @@ public class eNEMYcONTROLLER2 : MonoBehaviour
 
     Animator anim;
 
+
     public float distanceToChase = 3f;
     public float chaseInterval = 2f;
     float chaseTime;
-
-    //  public ParticleSystem particle;
+    public GameObject particle;
+    public Transform originParticlePoint;
     WaitForSeconds wait;
     void Start()
     {
@@ -31,6 +32,8 @@ public class eNEMYcONTROLLER2 : MonoBehaviour
 
         anim = GetComponent<Animator>();
 
+        target = GameObject.FindGameObjectWithTag("Player").transform; 
+
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -38,6 +41,7 @@ public class eNEMYcONTROLLER2 : MonoBehaviour
         if(collision.gameObject.CompareTag("Bullet"))
         {
             life--;
+            Instantiate(particle, originParticlePoint.position, Quaternion.identity);
             if (life <= 0 )
             {
                 Destroy(gameObject);
@@ -50,7 +54,7 @@ public class eNEMYcONTROLLER2 : MonoBehaviour
 
     public bool DoDamage(int vld, bool isPlayer)
     {
-        Debug.Log("HE RECIBIDO DAÑO = " + vld + " isPlayer  =  " + isPlayer);
+        Debug.Log("HE RECIBIDO DAï¿½O = " + vld + " isPlayer  =  " + isPlayer);
         if (isPlayer == true)
         {
             life -= vld;
@@ -66,9 +70,9 @@ public class eNEMYcONTROLLER2 : MonoBehaviour
 
     IEnumerator Die()
     {
-        //particle.Play();
+        
         yield return wait;
-        GameManager.instance.AddEnemyKill();
+       // GameManager.instance.AddEnemyKill();
         Destroy(gameObject);
 
     }
