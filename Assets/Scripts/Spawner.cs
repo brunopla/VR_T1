@@ -17,7 +17,7 @@ public class Spawner : MonoBehaviour
         Instantiate(objectToBeSpawn, transform.position, Quaternion.identity);
         for (int i = 0; i < numbersOfItems; i++)
         {
-            Vector3 position = new Vector3(0.0f, 1.0f, 0.0f);
+            Vector3 position = new Vector3(0.0f, -16.9f, 0.0f);
             Instantiate(objectToBeSpawn, position, Quaternion.identity, parent);
         }
     }

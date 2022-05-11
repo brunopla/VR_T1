@@ -7,7 +7,7 @@ public class eNEMYcONTROLLER2 : MonoBehaviour
 {
 
     public Transform target;
- 
+
     float distanceToTarget;
 
     public int life = 5;
@@ -15,6 +15,11 @@ public class eNEMYcONTROLLER2 : MonoBehaviour
     NavMeshAgent agent;
 
     Animator anim;
+
+    public AudioClip zsonido;
+    //public AudioClip zattack;
+
+    AudioSource zSource;
 
 
     public float distanceToChase = 3f;
@@ -32,7 +37,9 @@ public class eNEMYcONTROLLER2 : MonoBehaviour
 
         anim = GetComponent<Animator>();
 
-        target = GameObject.FindGameObjectWithTag("Player").transform; 
+        target = GameObject.FindGameObjectWithTag("Player").transform;
+
+        zSource = GetComponent<AudioSource>();
 
     }
 
@@ -97,7 +104,8 @@ public class eNEMYcONTROLLER2 : MonoBehaviour
                 agent.SetDestination(target.position);
                 agent.stoppingDistance = distanceToChase;
                 chaseTime = chaseInterval;
-                
+                zSource.PlayOneShot(zsonido);
+
             }
             else
             {
@@ -109,6 +117,7 @@ public class eNEMYcONTROLLER2 : MonoBehaviour
     void Attack()
     {
         anim.Play("Attack");
+       // zSource.PlayOneShot(zsonido);
     }
 
 
