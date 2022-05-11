@@ -11,12 +11,19 @@ public class Bullet_Spawn : MonoBehaviour
     public GameObject bulletOrigin;
     public GameObject bullet_Uzi;
     public GameObject Enemy;
-    
+    //public GameObject particle;
+ //   public Transform originParticle;
+  //  public ParticleSystem particleSystems;
+
+
 
     #endregion
 
 
-   
+    private void Start()
+    {
+        //particleSystems = GetComponent<ParticleSystem>();
+    }
 
 
     public void Shoot()
@@ -27,7 +34,9 @@ public class Bullet_Spawn : MonoBehaviour
 
         StartCoroutine(BulletDestroy(bullet_Instance, lifeTime));
 
+       // particleSystems.Play();
     }
+
 
     public IEnumerator BulletDestroy(GameObject g, float t)
     {
@@ -36,4 +45,13 @@ public class Bullet_Spawn : MonoBehaviour
         
 
     }
+
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (collision.gameObject.CompareTag("Enemy"))
+    //    {
+    //         Instantiate(particleSystems, originParticle.position, Quaternion.identity);
+    //    }
+            
+    //}
 }

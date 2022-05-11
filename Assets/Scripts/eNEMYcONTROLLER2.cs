@@ -5,29 +5,24 @@ using UnityEngine.AI;
 
 public class eNEMYcONTROLLER2 : MonoBehaviour
 {
-
+    #region
     public Transform target;
-
     float distanceToTarget;
-
     public int life = 5;
-
     NavMeshAgent agent;
-
     Animator anim;
-
     public AudioClip zsonido;
     //public AudioClip zattack;
-
     AudioSource zSource;
-
-
     public float distanceToChase = 3f;
     public float chaseInterval = 2f;
     float chaseTime;
     public GameObject particle;
     public Transform originParticlePoint;
     WaitForSeconds wait;
+    #endregion
+
+
     void Start()
     {
 
