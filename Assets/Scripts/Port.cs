@@ -5,13 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class Port : MonoBehaviour
 {
-    public void OnCollisionEnter(Collision otherObj)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (!
-              otherObj.gameObject.CompareTag("Player"))
-        {
+        if (collision.gameObject.CompareTag("Player"))
             SceneManager.LoadScene(1);
-        }
+    
+
 
     }
 }
