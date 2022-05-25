@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2364554452822956031}
   - component: {fileID: 7150140617218414245}
-  - component: {fileID: 2849619330244315076}
   - component: {fileID: 4739231870950758045}
-  - component: {fileID: -7352090096488450634}
+  - component: {fileID: -3459318059013683020}
+  - component: {fileID: -7596319629820150120}
   m_Layer: 0
   m_Name: UZI_Bullet
   m_TagString: Bullet
@@ -42,29 +42,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2364554452822956016}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6078e48b2dc7636439761d48d5179724, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigid: {fileID: 2849619330244315076}
+  rigid: {fileID: 0}
   speed: 25
---- !u!54 &2849619330244315076
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2364554452822956016}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!136 &4739231870950758045
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -79,7 +63,7 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-7352090096488450634
+--- !u!114 &-3459318059013683020
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -88,9 +72,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 2364554452822956016}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1810015a826e969408fae477c1280563, type: 3}
+  m_Script: {fileID: 11500000, guid: b3cb7d691068baf4c9cf1ed459301110, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 80
+  lifeDuration: 1
+  attack: 10
+  shooByPlayer: 1
+--- !u!54 &-7596319629820150120
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2364554452822956016}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &2364554453702010365
 PrefabInstance:
   m_ObjectHideFlags: 0

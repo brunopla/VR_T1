@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class eNEMYcONTROLLER2 : MonoBehaviour
+public class eNEMYcONTROLLER2 : MonoBehaviour, IDamage
 {
     #region
     public Transform target;
@@ -11,15 +11,19 @@ public class eNEMYcONTROLLER2 : MonoBehaviour
     public int life = 5;
     NavMeshAgent agent;
     Animator anim;
- //   public AudioClip zsonido;
-    //public AudioClip zattack;
-  //  AudioSource zSource;
+ 
     public float distanceToChase = 3f;
     public float chaseInterval = 2f;
     float chaseTime;
     public GameObject particle;
     public Transform originParticlePoint;
     WaitForSeconds wait;
+    #endregion
+
+    #region /
+    //   public AudioClip zsonido;
+    //public AudioClip zattack;
+    //  AudioSource zSource;
     #endregion
 
 
@@ -74,7 +78,7 @@ public class eNEMYcONTROLLER2 : MonoBehaviour
     {
         
         yield return wait;
-       // GameManager.instance.AddEnemyKill();
+        GameManager.instance.AddEnemyKill();
         Destroy(gameObject);
 
     }

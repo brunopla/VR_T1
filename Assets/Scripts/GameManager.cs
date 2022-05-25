@@ -40,11 +40,7 @@ public class GameManager : MonoBehaviour
         timer += Time.deltaTime;
         txtTimer.text = "TIME: " + timer.ToString("n2");
 
-        if (Input.GetKeyDown(KeyCode.Return))
-        {
-            staticValues.winner = -1;
-            SceneManager.LoadScene(0);
-        }
+      
 
     }
     public void FinGame(bool isWin)

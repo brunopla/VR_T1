@@ -24,8 +24,9 @@ public class Timer : MonoBehaviour
     {
         if (time > 0 && !win)
         {
+            timer.text = time.ToString();
             time -= 1 * Time.deltaTime;
-            timer.text = time.ToString();          
+                    
 
         }
      
