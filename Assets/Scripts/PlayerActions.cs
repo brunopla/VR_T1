@@ -46,7 +46,7 @@ public class PlayerActions : MonoBehaviour, IDamage
     }
     public bool DoDamage(int vld, bool isPlayer)
     {
-        Debug.Log("HE RECIBIDO DAÑO = " + vld + " isPlayer = " + isPlayer);
+        Debug.Log("HE RECIBIDO DAï¿½O = " + vld + " isPlayer = " + isPlayer);
         if (isPlayer == true) return false;
         else
         {
@@ -70,7 +70,7 @@ public class PlayerActions : MonoBehaviour, IDamage
        // damageEffect.SetActive(false);
         if (health <= 0)
         {
-            GameManager.instance.FinGame(false);
+           // GameManager.instance.FinGame(false);
         }
 
     }

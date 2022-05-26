@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
@@ -13,6 +15,7 @@ public class GameManager : MonoBehaviour
 
     public float timer;
     public Text txtTimer;
+    public GameObject locomotion;
 
 
     // Start is called before the first frame update
@@ -30,7 +33,7 @@ public class GameManager : MonoBehaviour
         txtTotalEnemiesKilled.text = "Total Enemies: " + totalKills.ToString();
         if (totalKills <= 0)
         {
-            FinGame(true);
+           
         }
     }
 
@@ -38,8 +41,16 @@ public class GameManager : MonoBehaviour
     {
         timer -= Time.deltaTime;
         txtTimer.text = "TIME: " + timer.ToString("n0");
+        if (timer < 0)
+        {
+            //locomotion.SetActive(false);
 
-      
+           //SceneManager.LoadScene(1);
+                    
+
+        }
+
+       
 
     }
     public void FinGame(bool isWin)
@@ -72,7 +83,7 @@ public class GameManager : MonoBehaviour
         }
 
 
-        SceneManager.LoadScene(0);
+       
            
     }
 
