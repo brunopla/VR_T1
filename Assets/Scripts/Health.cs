@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
-    public float health = 50f;
+    public float health;
 
 
 
@@ -14,6 +14,7 @@ public class Health : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             health--;
+            Debug.Log(health);
            
             if (health <= 0)
             {

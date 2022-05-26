@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
@@ -14,8 +15,7 @@ public class GameManager : MonoBehaviour
 
     public float timer;
     public Text txtTimer;
-    
-    
+    public GameObject locomotion;
 
 
     // Start is called before the first frame update
@@ -43,8 +43,9 @@ public class GameManager : MonoBehaviour
         txtTimer.text = "TIME: " + timer.ToString("n0");
         if (timer < 0)
         {
+            //locomotion.SetActive(false);
 
-           SceneManager.LoadScene(1);
+           //SceneManager.LoadScene(1);
                     
 
         }

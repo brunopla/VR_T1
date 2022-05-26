@@ -1180,9 +1180,13 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 74
       objectReference: {fileID: 0}
+    - target: {fileID: 8557135835833095187, guid: f42c5f8f2f3685f48aa104d444fec378, type: 3}
+      propertyPath: m_Text
+      value: 'Enemies: '
+      objectReference: {fileID: 0}
     - target: {fileID: 8557135835833095214, guid: f42c5f8f2f3685f48aa104d444fec378, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f42c5f8f2f3685f48aa104d444fec378, type: 3}
