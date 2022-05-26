@@ -11,7 +11,7 @@ public class GameManager : MonoBehaviour
     public int totalKills;
     public GameObject enemyContainer;
 
-    float timer;
+    public float timer;
     public Text txtTimer;
 
 
@@ -20,14 +20,13 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
         totalKills = enemyContainer.GetComponentsInChildren<EnemyController>().Length;
-        txtTotalEnemiesKilled.text = "Total Enemies: " + totalKills.ToString();
-        timer = 0.0f;
+        txtTotalEnemiesKilled.text = "Total Enemies: " + totalKills.ToString();        
         txtTimer.text = "TIME: " + timer.ToString("n2");
     }
 
     public void AddEnemyKill()
     {
-        totalKills--;
+        totalKills++;        
         txtTotalEnemiesKilled.text = "Total Enemies: " + totalKills.ToString();
         if (totalKills <= 0)
         {
@@ -37,8 +36,8 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        timer += Time.deltaTime;
-        txtTimer.text = "TIME: " + timer.ToString("n2");
+        timer -= Time.deltaTime;
+        txtTimer.text = "TIME: " + timer.ToString("n0");
 
       
 

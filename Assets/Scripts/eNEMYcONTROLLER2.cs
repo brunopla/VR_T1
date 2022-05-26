@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class eNEMYcONTROLLER2 : MonoBehaviour, IDamage
+public class eNEMYcONTROLLER2 : MonoBehaviour
 {
     #region
     public Transform target;
@@ -18,6 +18,7 @@ public class eNEMYcONTROLLER2 : MonoBehaviour, IDamage
     public GameObject particle;
     public Transform originParticlePoint;
     WaitForSeconds wait;
+    public GameManager gm;
     #endregion
 
     #region /
@@ -29,7 +30,9 @@ public class eNEMYcONTROLLER2 : MonoBehaviour, IDamage
 
     void Start()
     {
+        gm = FindObjectOfType<GameManager>().GetComponent<GameManager>();
 
+       
         agent = GetComponent<NavMeshAgent>();
 
         chaseTime = chaseInterval;
@@ -50,6 +53,7 @@ public class eNEMYcONTROLLER2 : MonoBehaviour, IDamage
             Instantiate(particle, originParticlePoint.position, Quaternion.identity);
             if (life <= 0 )
             {
+                gm.AddEnemyKill();
                 Destroy(gameObject);
 
             }
@@ -58,30 +62,8 @@ public class eNEMYcONTROLLER2 : MonoBehaviour, IDamage
         
     }
 
-    public bool DoDamage(int vld, bool isPlayer)
-    {
-        Debug.Log("HE RECIBIDO DA�O = " + vld + " isPlayer  =  " + isPlayer);
-        if (isPlayer == true)
-        {
-            life -= vld;
-            if (life <= 0)
-            {
-                StartCoroutine(Die());
-            }
-            return true;
-        }
-        return false;
-
-    }
-
-    IEnumerator Die()
-    {
-        
-        yield return wait;
-        GameManager.instance.AddEnemyKill();
-        Destroy(gameObject);
-
-    }
+   
+   
 
     // Update is called once per frame
     void Update()

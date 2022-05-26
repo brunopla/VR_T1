@@ -11,6 +11,7 @@ public class Bullet_Spawn : MonoBehaviour
     public GameObject bulletOrigin;
     public GameObject bullet_Uzi;
     public GameObject Enemy;
+    public GameObject particle;
     //public GameObject particle;
  //   public Transform originParticle;
   //  public ParticleSystem particleSystems;
@@ -29,10 +30,12 @@ public class Bullet_Spawn : MonoBehaviour
     public void Shoot()
     {
         GameObject bullet_Instance = Instantiate(bullet_Uzi, bulletOrigin.transform);
-
+        Instantiate(particle, bulletOrigin.transform);
         bullet_Instance.transform.parent = null;
 
         StartCoroutine(BulletDestroy(bullet_Instance, lifeTime));
+
+
 
        // particleSystems.Play();
     }

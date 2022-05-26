@@ -27,8 +27,7 @@ public class Bullet : MonoBehaviour
 
     }
     private void FixedUpdate()
-    {
-        //transform.localPosition += transform.forward * speed * Time.fixedDeltaTime;
+    {        
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
     }
     private void OnTriggerEnter(Collider other)
