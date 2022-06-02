@@ -82,7 +82,6 @@ GameObject:
   - component: {fileID: 3036888119246138618}
   - component: {fileID: 3036888119246138619}
   - component: {fileID: 942559999}
-  - component: {fileID: 942560005}
   m_Layer: 2
   m_Name: XR Origin
   m_TagString: Player
@@ -182,19 +181,6 @@ MonoBehaviour:
   health: 20
   ammo: 10
   saveInterval: 0.5
---- !u!114 &942560005
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3036888119246138609}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48e80410b6a83434aba7574b4e7582fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 50
 --- !u!1 &3036888119475785519
 GameObject:
   m_ObjectHideFlags: 0

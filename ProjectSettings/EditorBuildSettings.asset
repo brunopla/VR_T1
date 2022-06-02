@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Level_00.unity
+    path: Assets/Scenes/brunolacaga.unity
     guid: 874abb12aa52f3e4ba74344b150bac4f
   - enabled: 1
     path: Assets/Scenes/Prototipable.unity

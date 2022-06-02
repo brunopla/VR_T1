@@ -10,7 +10,7 @@ public class Bullet_Spawn : MonoBehaviour
     public float lifeTime;
     public GameObject bulletOrigin;
     public GameObject bullet_Uzi;
-    public GameObject Enemy;
+   // public GameObject Enemy;
     public GameObject particle;
     //public GameObject particle;
  //   public Transform originParticle;

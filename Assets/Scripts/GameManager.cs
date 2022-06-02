@@ -9,22 +9,32 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-    public Text txtTotalEnemiesKilled;
-    public int totalKills;
-    public GameObject enemyContainer;
 
     public float timer;
+    public int totalKills;
+    public int takedamage;
+    public int ammo;
+   
+
     public Text txtTimer;
+    public Text txtTotalEnemiesKilled;
+    public Text txtHealth;
+    public Text txtAmmo;
     public GameObject locomotion;
+    public GameObject enemyContainer;
+    public GameObject hp;
 
-
-    // Start is called before the first frame update
+    
     void Start()
     {
         instance = this;
-        totalKills = enemyContainer.GetComponentsInChildren<EnemyController>().Length;
+        totalKills = enemyContainer.GetComponentsInChildren<eNEMYcONTROLLER2>().Length;
         txtTotalEnemiesKilled.text = "Total Enemies: " + totalKills.ToString();        
         txtTimer.text = "TIME: " + timer.ToString("n2");
+        txtHealth.text = "Take Damage: " + takedamage.ToString();
+        txtAmmo.text = "Ammo: " + ammo.ToString();
+
+
     }
 
     public void AddEnemyKill()
@@ -36,6 +46,18 @@ public class GameManager : MonoBehaviour
            
         }
     }
+    public void TakeDamage()
+    {
+        takedamage--;
+        txtHealth.text = "Health: " + takedamage.ToString();
+     
+    }
+    
+    public void TakeAmmo()
+    {
+        ammo++;
+        txtAmmo.text = "Ammo: " + ammo.ToString();
+    }
 
     private void Update()
     {
@@ -43,7 +65,7 @@ public class GameManager : MonoBehaviour
         txtTimer.text = "TIME: " + timer.ToString("n0");
         if (timer < 0)
         {
-            //locomotion.SetActive(false);
+            locomotion.SetActive(false);
 
            //SceneManager.LoadScene(1);
                     
@@ -53,40 +75,7 @@ public class GameManager : MonoBehaviour
        
 
     }
-    public void FinGame(bool isWin)
-    {
-        if (isWin == true)
-        {
-            Debug.Log("HAS GANADO");
-            staticValues.winner = 1;
-
-            if (PlayerPrefs.HasKey("record") == true)
-            {
-                float record = PlayerPrefs.GetFloat("record");
-                if (timer < record)
-                {
-                    PlayerPrefs.SetFloat("record", timer);
-                }
-            }
-
-            else
-            {
-                PlayerPrefs.SetFloat("record", timer);
-            }
-            PlayerPrefs.Save();
-
-        }
-        else
-        {
-            Debug.Log("HAS PERDIDO");
-            staticValues.winner = 0;
-        }
-
-
-       
-           
-    }
-
+    
 
 
 }
