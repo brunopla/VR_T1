@@ -149,7 +149,7 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.xr.legacyinputhelpers": {
-      "version": "2.1.8",
+      "version": "2.1.9",
       "depth": 1,
       "source": "registry",
       "dependencies": {
@@ -159,8 +159,8 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.xr.management": {
-      "version": "4.0.7",
-      "depth": 0,
+      "version": "4.2.0",
+      "depth": 1,
       "source": "registry",
       "dependencies": {
         "com.unity.modules.subsystems": "1.0.0",
@@ -172,11 +172,11 @@
       "url": "https://packages.unity.com"
     },
     "com.unity.xr.oculus": {
-      "version": "1.11.0",
+      "version": "1.11.2",
       "depth": 0,
       "source": "registry",
       "dependencies": {
-        "com.unity.xr.management": "4.0.1",
+        "com.unity.xr.management": "4.2.0",
         "com.unity.ugui": "1.0.0"
       },
       "url": "https://packages.unity.com"
