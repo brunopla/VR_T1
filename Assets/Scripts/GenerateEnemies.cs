@@ -16,7 +16,7 @@ public class GenerateEnemies : MonoBehaviour
     }
     IEnumerator EnemyDrop()
     {
-        while (enemyCount <30)
+        while (enemyCount <50)
         {
             xPos = Random.Range(1, 50);
             zPos = Random.Range(1, 31);

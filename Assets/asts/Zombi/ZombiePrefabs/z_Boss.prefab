@@ -642,10 +642,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6d08f546a4b8da42b4e63968efa2661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
-  life: 20
-  zsonido: {fileID: 0}
-  distanceToChase: 3
+  life: 30
+  distanceToChase: 2
   chaseInterval: 2
   particle: {fileID: 1834194341294532, guid: d5f26854a8904624c8073139cd2eb346, type: 3}
   originParticlePoint: {fileID: 4262748806907005350}

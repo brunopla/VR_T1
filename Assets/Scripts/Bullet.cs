@@ -34,13 +34,7 @@ public class Bullet : MonoBehaviour
     {
         Debug.Log("Bullet choca = " + other.name);
 
-        IDamage damage = other.GetComponent<IDamage>();
-        bool remove = true;
-        if (damage != null)
-        {
-            remove = damage.DoDamage(attack, shooByPlayer);
-        }
-        if (remove == true) gameObject.SetActive(false);
+    
     }
 
 }

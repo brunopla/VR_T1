@@ -6,6 +6,12 @@ using UnityEngine.SceneManagement;
 public class Health : MonoBehaviour
 {
     public float health;
+    private GameManager gma;
+
+    private void Start()
+    {
+        gma = FindObjectOfType<GameManager>().GetComponent<GameManager>();
+    }
 
 
 
@@ -14,10 +20,13 @@ public class Health : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             health--;
+            gma.TakeDamage();
+
             Debug.Log(health);
            
             if (health <= 0)
             {
+              
                 SceneManager.LoadScene(0);
 
             }

@@ -6,7 +6,7 @@ using UnityEngine.AI;
 public class eNEMYcONTROLLER2 : MonoBehaviour
 {
     #region
-    public Transform target;
+    private Transform target;
     float distanceToTarget;
     public int life = 5;
     NavMeshAgent agent;
@@ -18,13 +18,13 @@ public class eNEMYcONTROLLER2 : MonoBehaviour
     public GameObject particle;
     public Transform originParticlePoint;
     WaitForSeconds wait;
-    public GameManager gm;
+    private GameManager gm;
     #endregion
 
     #region /
-    //   public AudioClip zsonido;
-    //public AudioClip zattack;
-    //  AudioSource zSource;
+    public AudioClip zsonido;
+    public AudioClip zattack;
+    AudioSource zSource;
     #endregion
 
 
@@ -41,7 +41,7 @@ public class eNEMYcONTROLLER2 : MonoBehaviour
 
         target = GameObject.FindGameObjectWithTag("Player").transform;
 
-     //   zSource = GetComponent<AudioSource>();
+        zSource = GetComponent<AudioSource>();
 
     }
 
@@ -98,7 +98,7 @@ public class eNEMYcONTROLLER2 : MonoBehaviour
     void Attack()
     {
         anim.Play("Attack");
-       // zSource.PlayOneShot(zsonido);
+        zSource.PlayOneShot(zsonido);
     }
 
 

@@ -821,13 +821,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6d08f546a4b8da42b4e63968efa2661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   life: 5
-  zsonido: {fileID: 8300000, guid: 8179098509e12864d8742be0a2455b1d, type: 3}
-  distanceToChase: 3
+  distanceToChase: 1
   chaseInterval: 2
   particle: {fileID: 1834194341294532, guid: d5f26854a8904624c8073139cd2eb346, type: 3}
   originParticlePoint: {fileID: 4101615985094656495}
+  zsonido: {fileID: 8300000, guid: 8179098509e12864d8742be0a2455b1d, type: 3}
+  zattack: {fileID: 8300000, guid: 8179098509e12864d8742be0a2455b1d, type: 3}
 --- !u!82 &5559057319645479483
 AudioSource:
   m_ObjectHideFlags: 0
@@ -835,12 +835,12 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2303832357312556886}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.289
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 1
   Mute: 0
