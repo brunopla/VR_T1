@@ -15,7 +15,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &7905943511654406624
 Transform:
@@ -43,11 +43,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad6cdc61e24d7c244b0b03e7931bc464, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
-  lifeTime: 1
+  speed: 2
+  lifeTime: 2
   bulletOrigin: {fileID: 7905943511654406627}
   bullet_Uzi: {fileID: 2364554452822956016, guid: c618b84f685d88040a8c25b3c3a0c997, type: 3}
-  Enemy: {fileID: 0}
+  particle: {fileID: 2869011931817877062, guid: b0fa1a134e02d1847b013d8bb7db0285, type: 3}
+  gm: {fileID: 0}
 --- !u!1 &7905943512921947393
 GameObject:
   m_ObjectHideFlags: 0
@@ -62,7 +63,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &7905943512921947398
 Transform:
@@ -94,7 +95,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &7905943513564191600
 Transform:
@@ -175,7 +176,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &7905943513564191602
 Transform:
@@ -256,7 +257,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &7905943513564191604
 Transform:
@@ -338,7 +339,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &7905943513564191606
 Transform:
@@ -419,7 +420,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &7905943513564191608
 Transform:
@@ -503,7 +504,7 @@ GameObject:
   m_TagString: Gun
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 8
   m_IsActive: 1
 --- !u!4 &7905943513564191610
 Transform:
@@ -512,9 +513,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7905943513564153690}
-  m_LocalRotation: {x: -0, y: 0.796302, z: -0, w: 0.60489935}
+  m_LocalRotation: {x: 0, y: 0.796303, z: 0, w: 0.60489804}
   m_LocalPosition: {x: -4.251, y: 9.403999, z: 2.442}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 7905943513564191600}
   - {fileID: 7905943513564191602}
@@ -728,5 +729,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.07232216, y: 0.22881788, z: 0.3595045}
-  m_Center: {x: -0.0015719682, y: -0.017659038, z: -0.01337938}
+  m_Size: {x: 0.07232216, y: 0.32169098, z: 0.20349438}
+  m_Center: {x: -0.0015719633, y: -0.06409559, z: 0.064625695}
