@@ -20,7 +20,7 @@ public class Health : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             health--;
-            gma.TakeDamage();
+            gma.hp();
 
             Debug.Log(health);
            

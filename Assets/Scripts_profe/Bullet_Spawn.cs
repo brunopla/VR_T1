@@ -10,11 +10,9 @@ public class Bullet_Spawn : MonoBehaviour
     public float lifeTime;
     public GameObject bulletOrigin;
     public GameObject bullet_Uzi;
-   // public GameObject Enemy;
     public GameObject particle;
-    //public GameObject particle;
- //   public Transform originParticle;
-  //  public ParticleSystem particleSystems;
+    public GameManager gm;
+ 
 
 
 
@@ -23,7 +21,7 @@ public class Bullet_Spawn : MonoBehaviour
 
     private void Start()
     {
-        //particleSystems = GetComponent<ParticleSystem>();
+        gm = FindObjectOfType<GameManager>();
     }
 
 
@@ -32,12 +30,10 @@ public class Bullet_Spawn : MonoBehaviour
         GameObject bullet_Instance = Instantiate(bullet_Uzi, bulletOrigin.transform);
         Instantiate(particle, bulletOrigin.transform);
         bullet_Instance.transform.parent = null;
+        gm.ammo--;
 
         StartCoroutine(BulletDestroy(bullet_Instance, lifeTime));
 
-
-
-       // particleSystems.Play();
     }
 
 
@@ -49,12 +45,5 @@ public class Bullet_Spawn : MonoBehaviour
 
     }
 
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if (collision.gameObject.CompareTag("Enemy"))
-    //    {
-    //         Instantiate(particleSystems, originParticle.position, Quaternion.identity);
-    //    }
-            
-    //}
+   
 }

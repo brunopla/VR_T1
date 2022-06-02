@@ -11,7 +11,7 @@ public class Ammo : MonoBehaviour
 
     void Start()
     {
-        gm = FindObjectOfType<GameManager>().GetComponent<GameManager>();
+        gm = FindObjectOfType<GameManager>();
     }
 
   
@@ -20,7 +20,7 @@ public class Ammo : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ammo"))
         {
-            
+            gm.hp();
         }
 
 

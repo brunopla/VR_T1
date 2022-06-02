@@ -11,8 +11,9 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public float timer;
+
     public int totalKills;
-    public int takedamage;
+    public int health;
     public int ammo;
    
 
@@ -20,9 +21,11 @@ public class GameManager : MonoBehaviour
     public Text txtTotalEnemiesKilled;
     public Text txtHealth;
     public Text txtAmmo;
+
     public GameObject locomotion;
     public GameObject enemyContainer;
-    public GameObject hp;
+   
+   
 
     
     void Start()
@@ -31,7 +34,7 @@ public class GameManager : MonoBehaviour
         totalKills = enemyContainer.GetComponentsInChildren<eNEMYcONTROLLER2>().Length;
         txtTotalEnemiesKilled.text = "Total Enemies: " + totalKills.ToString();        
         txtTimer.text = "TIME: " + timer.ToString("n2");
-        txtHealth.text = "Take Damage: " + takedamage.ToString();
+        txtHealth.text = "HP: " + health.ToString();
         txtAmmo.text = "Ammo: " + ammo.ToString();
 
 
@@ -46,16 +49,16 @@ public class GameManager : MonoBehaviour
            
         }
     }
-    public void TakeDamage()
+    public void hp()
     {
-        takedamage--;
-        txtHealth.text = "Health: " + takedamage.ToString();
+        health--;
+        txtHealth.text = "Health: " + health.ToString();
      
     }
     
     public void TakeAmmo()
     {
-        ammo++;
+        ammo = 150;
         txtAmmo.text = "Ammo: " + ammo.ToString();
     }
 
@@ -65,17 +68,11 @@ public class GameManager : MonoBehaviour
         txtTimer.text = "TIME: " + timer.ToString("n0");
         if (timer < 0)
         {
-            locomotion.SetActive(false);
+            locomotion.SetActive(false);                    
 
-           //SceneManager.LoadScene(1);
-                    
-
-        }
-
-       
+        }      
 
     }
     
-
 
 }
