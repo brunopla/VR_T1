@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 2554388982192590694}
   - component: {fileID: 2554388982195982150}
   - component: {fileID: 2554388982195015046}
-  - component: {fileID: 2554388982190669286}
   - component: {fileID: 2554388982185336966}
+  - component: {fileID: 698552676644589591}
   m_Layer: 0
   m_Name: concrete_barrier (1)
   m_TagString: Untagged
@@ -83,20 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2554388982190669286
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2554388982192755526}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: d52d1d04770ebeb43946a0faed85fa0c, type: 3}
 --- !u!95 &2554388982185336966
 Animator:
   serializedVersion: 3
@@ -116,3 +102,16 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &698552676644589591
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2554388982192755526}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.4290923, y: 4.8026624, z: 2.7240467}
+  m_Center: {x: -9.290359e-15, y: -0.0000009536743, z: 0.7661412}
