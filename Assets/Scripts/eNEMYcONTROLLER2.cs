@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class eNEMYcONTROLLER2 : MonoBehaviour
 {
-    #region variables
+    #region
     private Transform target;
     float distanceToTarget;
     public int life = 5;
@@ -19,9 +19,9 @@ public class eNEMYcONTROLLER2 : MonoBehaviour
     public Transform originParticlePoint;
     WaitForSeconds wait;
     private GameManager gm;
-    #endregion 
+    #endregion
 
-    #region audio
+    #region /
     public AudioClip zsonido;
     public AudioClip zattack;
     AudioSource zSource;
@@ -53,9 +53,8 @@ public class eNEMYcONTROLLER2 : MonoBehaviour
             Instantiate(particle, originParticlePoint.position, Quaternion.identity);
             if (life <= 0 )
             {
-                StartCoroutine(DeadEnemy());
                 gm.AddEnemyKill();
-                
+                Destroy(gameObject);
 
             }
         }
@@ -93,7 +92,6 @@ public class eNEMYcONTROLLER2 : MonoBehaviour
             {
                 Attack();
             }
-
         }
     }
 
@@ -103,13 +101,6 @@ public class eNEMYcONTROLLER2 : MonoBehaviour
         zSource.PlayOneShot(zsonido);
     }
 
-    public IEnumerator DeadEnemy()
-    {
-        anim.Play("Dead");
-        yield return new WaitForSeconds(2);
-        Destroy(gameObject);
-
-    }
 
 
 }
