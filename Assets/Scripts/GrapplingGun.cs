@@ -4,13 +4,13 @@ public class GrapplingGun : MonoBehaviour
 {
     #region Variables
 
-   // private LineRenderer lr;
-
-    private float maxDistance = 100f;
+    private LineRenderer lr; 
+    
+    public float maxDistance = 100f;
     private SpringJoint joint;
 
     public Transform pivotStartPoint;
-    public Transform gunTip,  player;
+    public Transform gunTip, hitp, player;
     private Vector3 grapplePoint;
     private Vector3 currentGrapplePosition;
 
@@ -23,9 +23,8 @@ public class GrapplingGun : MonoBehaviour
 
     #endregion
 
-    void Awake()
-    {
-    //    lr = GetComponent<LineRenderer>();
+    void Awake() {
+        lr = GetComponent<LineRenderer>();
     }
 
 
@@ -33,10 +32,10 @@ public class GrapplingGun : MonoBehaviour
     /// <summary>
     /// Call whenever we want to start a grapple
     /// </summary>
-    public void StartGrapple()
+    public void StartGrapple() 
     {
         RaycastHit hit;
-        if (Physics.Raycast(pivotStartPoint.position, pivotStartPoint.forward, out hit, maxDistance, whatIsGrappleable))
+        if (Physics.Raycast(pivotStartPoint.position, pivotStartPoint.forward, out hit, maxDistance, whatIsGrappleable)) 
         {
             grapplePoint = hit.point;
             joint = player.gameObject.AddComponent<SpringJoint>();
@@ -54,7 +53,7 @@ public class GrapplingGun : MonoBehaviour
             joint.damper = damper;
             joint.massScale = massScale;
 
-           // lr.positionCount = 2;
+            lr.positionCount = 2;
             currentGrapplePosition = gunTip.position;
 
             DrawRope();
@@ -65,32 +64,30 @@ public class GrapplingGun : MonoBehaviour
     /// <summary>
     /// Call whenever we want to stop a grapple
     /// </summary>
-    public void StopGrapple()
+    public void StopGrapple() 
     {
-      //  lr.positionCount = 0;
+        lr.positionCount = 0;
         Destroy(joint);
     }
 
-
-
-    void DrawRope()
+    
+    
+    void DrawRope() 
     {
         //If not grappling, don't draw rope
         if (!joint) return;
 
         currentGrapplePosition = Vector3.Lerp(currentGrapplePosition, grapplePoint, Time.deltaTime * 8f);
-
-     //   lr.SetPosition(0, gunTip.position);
-     //   lr.SetPosition(1, currentGrapplePosition);
+        
+        lr.SetPosition(0, gunTip.position);
+        lr.SetPosition(1, currentGrapplePosition);
     }
 
-    public bool IsGrappling()
-    {
+    public bool IsGrappling() {
         return joint != null;
     }
 
-    public Vector3 GetGrapplePoint()
-    {
+    public Vector3 GetGrapplePoint() {
         return grapplePoint;
     }
 }
