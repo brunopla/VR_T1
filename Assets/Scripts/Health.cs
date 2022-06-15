@@ -31,6 +31,11 @@ public class Health : MonoBehaviour
 
             }
         }
+        if (collision.gameObject.CompareTag("EnemyUP"))
+        {
+            health = -10;
+        }
+
 
 
     }

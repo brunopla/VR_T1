@@ -9,6 +9,8 @@ TagManager:
   - Bullet
   - Gun
   - Ammo
+  - EnemyUp
+  - EnemyUP
   layers:
   - Default
   - TransparentFX
