@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 
 
@@ -27,14 +28,13 @@ public class Bullet_Spawn : MonoBehaviour
 
     #endregion
 
-    private UnityEngine.XRController xr;
  
 
 
 
     private void Start()
     {
-        xr = (XRController) GameObject.FindObjectOfType(typeof(XRController));
+       
         gm = FindObjectOfType<GameManager>();
 
         shoot = GetComponent<AudioSource>();
@@ -45,7 +45,7 @@ public class Bullet_Spawn : MonoBehaviour
         if(gm.ammo != 0)
         {
         
-            ActivateHaptic();
+            
             GameObject bullet_Instance = Instantiate(bullet_Uzi, bulletOrigin.transform);
             Instantiate(particle, bulletOrigin.transform);
             bullet_Instance.transform.parent = null;
@@ -54,21 +54,6 @@ public class Bullet_Spawn : MonoBehaviour
         }
     }
 
-    void ActivateHaptic()
-    {
-        xr.SendHapticImpulse(0.7f, 2f);
-    }
-
-
-    public override bool SendHapticImpulse(float amplitude, float duration)
-    {
-        if (inputDevice.TryGetHapticCapabilities(out var capabilities) &&
-            capabilities.supportsImpulse)
-        {
-            return inputDevice.SendHapticImpulse(0u, amplitude, duration);
-        }
-        return false;
-    }
 
 
     #region
