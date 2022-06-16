@@ -103,7 +103,7 @@ public class eNEMYcONTROLLER2 : MonoBehaviour
     private IEnumerator Dead()
     {
         anim.Play("Dead");
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(1);
         Destroy(gameObject);
 
     }
