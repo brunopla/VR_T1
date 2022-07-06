@@ -848,13 +848,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6d08f546a4b8da42b4e63968efa2661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 8
+  life: 3
   distanceToChase: 1
   chaseInterval: 2
   particle: {fileID: 1834194341294532, guid: d5f26854a8904624c8073139cd2eb346, type: 3}
   originParticlePoint: {fileID: 1743394796110036649}
-  zsonido: {fileID: 0}
-  zattack: {fileID: 0}
 --- !u!1 &4697636754393883679
 GameObject:
   m_ObjectHideFlags: 0

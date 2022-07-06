@@ -1,9 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.XR.Interaction.Toolkit;
-
-
 
 public class Bullet_Spawn : MonoBehaviour
 {
@@ -28,13 +25,9 @@ public class Bullet_Spawn : MonoBehaviour
 
     #endregion
 
- 
-
-
 
     private void Start()
     {
-       
         gm = FindObjectOfType<GameManager>();
 
         shoot = GetComponent<AudioSource>();
@@ -42,19 +35,15 @@ public class Bullet_Spawn : MonoBehaviour
 
     public void Shoot()
     {      
-        if(gm.ammo != 0)
-        {
+        GameObject bullet_Instance = Instantiate(bullet_Uzi, bulletOrigin.transform);
+        Instantiate(particle, bulletOrigin.transform);
+        bullet_Instance.transform.parent = null;
+        gm.ammo--;
+
         
-            
-            GameObject bullet_Instance = Instantiate(bullet_Uzi, bulletOrigin.transform);
-            Instantiate(particle, bulletOrigin.transform);
-            bullet_Instance.transform.parent = null;
-            gm.ammo--;
-            StartCoroutine(BulletDestroy(bullet_Instance, lifeTime));
-        }
+
+        StartCoroutine(BulletDestroy(bullet_Instance, lifeTime));
     }
-
-
 
     #region
     public IEnumerator RafagaBullets()

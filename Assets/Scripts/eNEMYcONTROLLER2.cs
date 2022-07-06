@@ -53,8 +53,9 @@ public class eNEMYcONTROLLER2 : MonoBehaviour
             Instantiate(particle, originParticlePoint.position, Quaternion.identity);
             if (life <= 0 )
             {
-                StartCoroutine(Dead());
-                gm.AddEnemyKill();             
+                gm.AddEnemyKill();
+                Destroy(gameObject);
+
             }
         }
 
@@ -100,12 +101,8 @@ public class eNEMYcONTROLLER2 : MonoBehaviour
         zSource.PlayOneShot(zsonido);
     }
 
-    private IEnumerator Dead()
-    {
-        anim.Play("Dead");
-        yield return new WaitForSeconds(1);
-        Destroy(gameObject);
 
-    }
 
 }
+
+
