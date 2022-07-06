@@ -58,6 +58,13 @@ public class eNEMYcONTROLLER2 : MonoBehaviour
 
             }
         }
+        if(collision.gameObject.CompareTag("shotgun"))
+        {
+            Instantiate(particle, originParticlePoint.position, Quaternion.identity);
+            gm.AddEnemyKill();
+            Destroy(gameObject);
+        }
+
 
         
     }

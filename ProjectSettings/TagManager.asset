@@ -11,6 +11,7 @@ TagManager:
   - Ammo
   - EnemyUp
   - EnemyUP
+  - shotgun
   layers:
   - Default
   - TransparentFX

@@ -60,6 +60,10 @@ public class GameManager : MonoBehaviour
     {
         ammo = 150;
         txtAmmo.text = "Ammo: " + ammo.ToString();
+        if (ammo == 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void Update()

@@ -8,12 +8,12 @@ public class Bspawn : MonoBehaviour
 
     public float speed;
     public float lifeTime;
-    public GameManager gm;
+ //   public GameManager gm;
     public GameObject bulletOrigin;
     public GameObject bullet_Uzi;
     private void Start()
     {
-        gm = FindObjectOfType<GameManager>();
+        //gm = FindObjectOfType<GameManager>();
 
     }
 
@@ -22,7 +22,7 @@ public class Bspawn : MonoBehaviour
         GameObject bullet_Instance = Instantiate(bullet_Uzi, bulletOrigin.transform);
         Instantiate(bulletOrigin.transform);
         bullet_Instance.transform.parent = null;
-        gm.ammo--;
+       // gm.ammo--;
 
 
 
