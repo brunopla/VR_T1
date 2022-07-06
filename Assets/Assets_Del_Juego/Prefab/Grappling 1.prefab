@@ -251,7 +251,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 2100000, guid: d8a7d31f497e15a47859d4c852dcee03, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -282,8 +282,8 @@ LineRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.037078857
-        value: 0.046957016
+        time: 0.07721329
+        value: 0.01830101
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -295,8 +295,8 @@ LineRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0, g: 1, b: 0.18568897, a: 1}
+      key1: {r: 1, g: 0, b: 0, a: 1}
       key2: {r: 0, g: 0, b: 0, a: 0}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -324,12 +324,12 @@ LineRenderer:
       m_NumAlphaKeys: 2
     numCornerVertices: 0
     numCapVertices: 0
-    alignment: 1
+    alignment: 0
     textureMode: 0
     shadowBias: 0.5
-    generateLightingData: 0
-  m_UseWorldSpace: 0
-  m_Loop: 0
+    generateLightingData: 1
+  m_UseWorldSpace: 1
+  m_Loop: 1
 --- !u!114 &4332082544020661211
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -343,12 +343,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grapplingGun: {fileID: 1158537236065011498}
-  quality: 500
+  quality: 1
   damper: 14
-  strength: 800
+  strength: 8
   velocity: 15
   waveCount: 3
-  waveHeight: 1
+  waveHeight: 4
   affectCurve:
     serializedVersion: 2
     m_Curve:
