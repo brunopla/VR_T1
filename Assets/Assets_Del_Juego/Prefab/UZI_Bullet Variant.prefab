@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UZI_Bullet Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 2364554452822956016, guid: c618b84f685d88040a8c25b3c3a0c997, type: 3}
+      propertyPath: m_TagString
+      value: Bullet
+      objectReference: {fileID: 0}
     - target: {fileID: 2364554452822956031, guid: c618b84f685d88040a8c25b3c3a0c997, type: 3}
       propertyPath: m_RootOrder
       value: 0

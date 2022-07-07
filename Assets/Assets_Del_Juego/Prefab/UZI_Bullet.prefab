@@ -14,11 +14,11 @@ GameObject:
   - component: {fileID: -7596319629820150120}
   m_Layer: 0
   m_Name: UZI_Bullet
-  m_TagString: Bullet
+  m_TagString: Shotgun
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2364554452822956031
 Transform:
   m_ObjectHideFlags: 0

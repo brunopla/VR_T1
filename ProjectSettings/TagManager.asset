@@ -12,6 +12,7 @@ TagManager:
   - EnemyUp
   - EnemyUP
   - shotgun
+  - Shotgun
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - Floor
   - Player
   - Gun
-  - 
+  - Post Processing
   - 
   - 
   - 
