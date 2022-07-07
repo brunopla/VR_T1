@@ -45,12 +45,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   lifeTime: 2
-  rafaga: 0
   bulletOrigin: {fileID: 7905943511654406627}
   bullet_Uzi: {fileID: 2364554452822956016, guid: c618b84f685d88040a8c25b3c3a0c997, type: 3}
   particle: {fileID: 2869011931817877062, guid: b0fa1a134e02d1847b013d8bb7db0285, type: 3}
   gm: {fileID: 0}
-  uzi: {fileID: 0}
 --- !u!1 &7905943512921947393
 GameObject:
   m_ObjectHideFlags: 0
@@ -611,7 +609,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   m_InteractionLayers:
-    m_Bits: 4294967295
+    m_Bits: 1
   m_SelectMode: 0
   m_CustomReticle: {fileID: 0}
   m_FirstHoverEntered:
