@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
+    public Bspawn SelectGun;
+
     public float timer;
 
     public int totalKills;
@@ -60,6 +62,16 @@ public class GameManager : MonoBehaviour
     {
         ammo = 150;
         txtAmmo.text = "Ammo: " + ammo.ToString();
+    }
+
+
+    public void Selectgun(Bspawn selectGun)
+    {
+        SelectGun = selectGun;
+    }
+    public void DeselectGun()
+    {
+        SelectGun = null;
     }
 
     private void Update()

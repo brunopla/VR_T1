@@ -15,7 +15,7 @@ public class AmmoReload : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            gm.ammo = ammoToReload;
+            gm.SelectGun.ammo += ammoToReload;
             Destroy(gameObject);
         }
 

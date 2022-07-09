@@ -58,6 +58,7 @@ public class eNEMYcONTROLLER2 : MonoBehaviour
 
             }
         }
+
         if (collision.gameObject.CompareTag("Shotgun"))
         {
             Instantiate(particle, originParticlePoint.position, Quaternion.identity);

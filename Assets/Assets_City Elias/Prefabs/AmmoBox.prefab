@@ -91,6 +91,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5750255554913002592}
   - component: {fileID: 4187769419819489787}
+  - component: {fileID: 5360354228447199123}
+  - component: {fileID: 7468076585190060232}
   m_Layer: 0
   m_Name: AmmoBox
   m_TagString: Untagged
@@ -129,6 +131,33 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!65 &5360354228447199123
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8761290382145787507}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7468076585190060232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8761290382145787507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47d821788c13dd145aa881060fd397c7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gm: {fileID: 0}
+  ammoToReload: 4
 --- !u!1 &8904970913597571170
 GameObject:
   m_ObjectHideFlags: 0
