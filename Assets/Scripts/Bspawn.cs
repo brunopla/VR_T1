@@ -11,9 +11,17 @@ public class Bspawn : MonoBehaviour
     public GameObject bulletOrigin;
     public GameObject bullet_Uzi;
 
+    public AudioClip GunShotClip;
+    public AudioSource source;
+  
+
+    public GameObject muzzlePrefab;
+    public GameObject muzzlePosition;
+
     private void Start()
     {
         gm = FindObjectOfType<GameManager>();
+        source = GetComponent<AudioSource>();
     }
 
     public void Shoot()
@@ -27,19 +35,12 @@ public class Bspawn : MonoBehaviour
             Instantiate(bulletOrigin.transform);
             bullet_Instance.transform.parent = null;
             ammo--;
-
+            source.PlayOneShot(GunShotClip);
             StartCoroutine(BulletDestroy(bullet_Instance, lifeTime));
-        }
-        else
-        {
-            GameObject bullet_Instance = Instantiate(bullet_Uzi, bulletOrigin.transform);
-            Instantiate(bulletOrigin.transform);
-            bullet_Instance.transform.parent = null;
-          
+            var flash = Instantiate(muzzlePrefab, muzzlePosition.transform);
 
-            StartCoroutine(BulletDestroy(bullet_Instance, lifeTime));
         }
-
+      
     }
 
     public IEnumerator BulletDestroy(GameObject g, float t)

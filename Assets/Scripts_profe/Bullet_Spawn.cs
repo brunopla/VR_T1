@@ -14,8 +14,9 @@ public class Bullet_Spawn : MonoBehaviour
    
     public GameObject bulletOrigin;
     public GameObject bullet_Uzi;
-    public GameObject particle;
     public GameManager gm;
+    public GameObject muzzlePrefab;
+    public GameObject muzzlePosition;
 
     public AudioClip uzi;
     AudioSource shoot;
@@ -36,7 +37,7 @@ public class Bullet_Spawn : MonoBehaviour
     public void Shoot()
     {      
         GameObject bullet_Instance = Instantiate(bullet_Uzi, bulletOrigin.transform);
-        Instantiate(particle, bulletOrigin.transform);
+        
         bullet_Instance.transform.parent = null;
         gm.ammo--;
 
@@ -122,10 +123,12 @@ public class Bullet_Spawn : MonoBehaviour
             playerIsShooting = true;
 
             StartCoroutine(RafagaBullets());
-           
-        }
+            shoot.PlayOneShot(uzi);
 
-        shoot.PlayOneShot(uzi);
+        }
+        var flash = Instantiate(muzzlePrefab, muzzlePosition.transform);
+        
+
     }
 
     public IEnumerator BulletDestroy(GameObject g, float t)
