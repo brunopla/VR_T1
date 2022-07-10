@@ -23,7 +23,7 @@ public class eNEMYcONTROLLER2 : MonoBehaviour
 
     #region /
     public AudioClip zsonido;
-    public AudioClip zattack;
+    
     AudioSource zSource;
     #endregion
 
@@ -93,7 +93,7 @@ public class eNEMYcONTROLLER2 : MonoBehaviour
                 agent.SetDestination(target.position);
                 agent.stoppingDistance = distanceToChase;
                 chaseTime = chaseInterval;
-             //   zSource.PlayOneShot(zsonido);
+                zSource.PlayOneShot(zsonido);
 
             }
             else
