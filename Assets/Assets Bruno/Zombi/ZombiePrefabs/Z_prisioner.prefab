@@ -850,7 +850,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 3
-  distanceToChase: 1
+  distanceToChase: 3
   chaseInterval: 2
   particle: {fileID: 1834194341294532, guid: d5f26854a8904624c8073139cd2eb346, type: 3}
   originParticlePoint: {fileID: 1743394796110036649}
