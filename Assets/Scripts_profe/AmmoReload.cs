@@ -15,7 +15,13 @@ public class AmmoReload : MonoBehaviour
     {
         if(other.CompareTag("Player"))
         {
-            gm.SelectGun.ammo += ammoToReload;
+            // Sin arma agarrada, la municion va a la reserva de la Uzi
+            if (gm.SelectGun != null)
+                gm.SelectGun.ammo += ammoToReload;
+            else
+                gm.ammo += ammoToReload;
+
+            gm.RefreshAmmo();
             Destroy(gameObject);
         }
 

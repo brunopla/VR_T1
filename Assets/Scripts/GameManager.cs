@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     public int totalKills;
     public int health;
     public int ammo;
-   
+
 
     public Text txtTimer;
     public Text txtTotalEnemiesKilled;
@@ -25,66 +25,91 @@ public class GameManager : MonoBehaviour
     public Text txtAmmo;
 
     public GameObject locomotion;
-    public GameObject enemyContainer;
-   
-   
 
-    
+    bool timeUp;
+
+
+
     void Start()
     {
         instance = this;
-        totalKills = enemyContainer.GetComponentsInChildren<eNEMYcONTROLLER2>().Length;
-        txtTotalEnemiesKilled.text = "Total Enemies: " + totalKills.ToString();        
-        txtTimer.text = "TIME: " + timer.ToString("n2");
-        txtHealth.text = "HP: " + health.ToString();
-        txtAmmo.text = "Ammo: " + ammo.ToString();
-
-
+        totalKills = 0;
+        SetText(txtTotalEnemiesKilled, "Kills: " + totalKills.ToString());
+        SetText(txtTimer, "TIME: " + timer.ToString("n0"));
+        SetText(txtHealth, "HP: " + health.ToString());
+        RefreshAmmo();
     }
 
     public void AddEnemyKill()
     {
-        totalKills++;        
-        txtTotalEnemiesKilled.text = "Total Enemies: " + totalKills.ToString();
-        if (totalKills <= 0)
-        {
-           
-        }
+        totalKills++;
+        SetText(txtTotalEnemiesKilled, "Kills: " + totalKills.ToString());
     }
     public void hp()
     {
         health--;
-        txtHealth.text = "Health: " + health.ToString();
-     
+        SetText(txtHealth, "HP: " + health.ToString());
+
     }
-    
+
     public void TakeAmmo()
     {
         ammo = 150;
-        txtAmmo.text = "Ammo: " + ammo.ToString();
+        RefreshAmmo();
+    }
+
+    // Municion de la Uzi (la que no es Bspawn). Devuelve false si no queda.
+    public bool UseAmmo()
+    {
+        if (ammo <= 0)
+            return false;
+
+        ammo--;
+        RefreshAmmo();
+        return true;
+    }
+
+    // Muestra la municion del arma agarrada, o la de la Uzi si no hay una.
+    public void RefreshAmmo()
+    {
+        float value = SelectGun != null ? SelectGun.ammo : ammo;
+        SetText(txtAmmo, "Ammo: " + value.ToString("n0"));
     }
 
 
     public void Selectgun(Bspawn selectGun)
     {
         SelectGun = selectGun;
+        RefreshAmmo();
     }
     public void DeselectGun()
     {
         SelectGun = null;
+        RefreshAmmo();
     }
 
     private void Update()
     {
-        timer -= Time.deltaTime;
-        txtTimer.text = "TIME: " + timer.ToString("n0");
-        if (timer < 0)
-        {
-            locomotion.SetActive(false);                    
+        if (timeUp)
+            return;
 
-        }      
+        timer -= Time.deltaTime;
+        if (timer <= 0)
+        {
+            timer = 0;
+            timeUp = true;
+            if (locomotion != null)
+                locomotion.SetActive(false);
+        }
+        SetText(txtTimer, "TIME: " + timer.ToString("n0"));
 
     }
-    
+
+    void SetText(Text txt, string value)
+    {
+        if (txt != null)
+            txt.text = value;
+    }
+
 
 }

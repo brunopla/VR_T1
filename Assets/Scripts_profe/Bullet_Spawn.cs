@@ -9,9 +9,11 @@ public class Bullet_Spawn : MonoBehaviour
     public float speed;
     public float lifeTime;
     public float rafaga;
+    public int balasPorRafaga = 15;
+    public float muzzleLifeTime = 1f;
 
     private bool playerIsShooting;
-   
+
     public GameObject bulletOrigin;
     public GameObject bullet_Uzi;
     public GameManager gm;
@@ -35,89 +37,46 @@ public class Bullet_Spawn : MonoBehaviour
     }
 
     public void Shoot()
-    {      
-        GameObject bullet_Instance = Instantiate(bullet_Uzi, bulletOrigin.transform);
-        
-        bullet_Instance.transform.parent = null;
-        gm.ammo--;
+    {
+        TryShoot();
+    }
 
-        
+    bool TryShoot()
+    {
+        if (!gm.UseAmmo())
+            return false;
+
+        GameObject bullet_Instance = Instantiate(bullet_Uzi, bulletOrigin.transform);
+
+        bullet_Instance.transform.parent = null;
 
         StartCoroutine(BulletDestroy(bullet_Instance, lifeTime));
+        return true;
     }
 
     #region
     public IEnumerator RafagaBullets()
     {
-        
+        var wait = new WaitForSeconds(rafaga / 18);
 
-        yield return new WaitForSeconds(rafaga /18);
+        for (int i = 0; i < balasPorRafaga; i++)
+        {
+            yield return wait;
 
-        Shoot();
+            if (!TryShoot())
+                break;
+        }
 
-        yield return new WaitForSeconds(rafaga / 18);
-
-        Shoot();
-
-        yield return new WaitForSeconds(rafaga / 18);
-
-        Shoot();
-
-        yield return new WaitForSeconds(rafaga / 18);
-
-        Shoot();
-
-        yield return new WaitForSeconds(rafaga / 18);
-
-        Shoot();
-
-        yield return new WaitForSeconds(rafaga / 18);
-
-        Shoot();
-
-        yield return new WaitForSeconds(rafaga / 18);
-
-        Shoot();
-
-        yield return new WaitForSeconds(rafaga / 18);
-
-        Shoot();
-
-        yield return new WaitForSeconds(rafaga / 18);
-
-        Shoot();
-
-        yield return new WaitForSeconds(rafaga / 18);
-
-        Shoot();
-
-        yield return new WaitForSeconds(rafaga / 18);
-
-        Shoot();
-
-        yield return new WaitForSeconds(rafaga / 18);
-
-        Shoot();
-
-        yield return new WaitForSeconds(rafaga / 18);
-
-        Shoot();
-
-        yield return new WaitForSeconds(rafaga / 18);
-
-        Shoot();
-
-        yield return new WaitForSeconds(rafaga / 18);
-
-        Shoot();
-
-        yield return new WaitForSeconds(rafaga / 18);
+        yield return wait;
         playerIsShooting = false;
     }
     #endregion
 
     public void EmpezarRafaga()
     {
+        if (gm.ammo <= 0)
+            return;
+
         if(playerIsShooting == false)
         {
             playerIsShooting = true;
@@ -127,7 +86,7 @@ public class Bullet_Spawn : MonoBehaviour
 
         }
         var flash = Instantiate(muzzlePrefab, muzzlePosition.transform);
-        
+        Destroy(flash, muzzleLifeTime);
 
     }
 
@@ -137,5 +96,5 @@ public class Bullet_Spawn : MonoBehaviour
         Destroy(g);
     }
 
-   
+
 }

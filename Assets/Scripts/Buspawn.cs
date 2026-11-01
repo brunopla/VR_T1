@@ -18,7 +18,7 @@ public class Buspawn : MonoBehaviour
     public void Shoot()
     {
         GameObject bullet_Instance = Instantiate(bullet_Uzi, bulletOrigin.transform);
-        Instantiate(bulletOrigin.transform);
+
         bullet_Instance.transform.parent = null;
       //  gm.ammo--;
 

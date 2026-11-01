@@ -19,6 +19,7 @@ public class eNEMYcONTROLLER2 : MonoBehaviour
     public Transform originParticlePoint;
     WaitForSeconds wait;
     private GameManager gm;
+    bool dead;
     #endregion
 
     #region /
@@ -47,23 +48,24 @@ public class eNEMYcONTROLLER2 : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        // Evita contar dos veces la muerte si chocan varias balas en el mismo frame
+        if (dead)
+            return;
+
         if(collision.gameObject.CompareTag("Bullet"))
         {
             life--;
             Instantiate(particle, originParticlePoint.position, Quaternion.identity);
             if (life <= 0 )
             {
-                gm.AddEnemyKill();
-                Destroy(gameObject);
-
+                Die();
             }
         }
 
-        if (collision.gameObject.CompareTag("Shotgun"))
+        else if (collision.gameObject.CompareTag("Shotgun"))
         {
             Instantiate(particle, originParticlePoint.position, Quaternion.identity);
-            gm.AddEnemyKill();
-            Destroy(gameObject);
+            Die();
         }
 
 
@@ -99,8 +101,16 @@ public class eNEMYcONTROLLER2 : MonoBehaviour
             else
             {
                 Attack();
+                chaseTime = chaseInterval;
             }
         }
+    }
+
+    void Die()
+    {
+        dead = true;
+        gm.AddEnemyKill();
+        Destroy(gameObject);
     }
 
     void Attack()
