@@ -101,6 +101,10 @@ public class GameManager : MonoBehaviour
     // Saca hasta 'requested' balas de la reserva y devuelve cuantas habia
     public int TakeReserve(int requested)
     {
+        // En el tutorial (GameManager desactivado) se practica sin gastar reserva
+        if (!isActiveAndEnabled)
+            return Mathf.Max(0, requested);
+
         int taken = Mathf.Clamp(requested, 0, ammo);
         ammo -= taken;
         RefreshAmmo();
