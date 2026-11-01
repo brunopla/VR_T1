@@ -6,6 +6,12 @@ public class PlayerHealth : MonoBehaviour
 {
     private GameManager gma;
 
+    // El collider puede estar en un hijo del XR Origin (que es el que tiene el tag)
+    public static bool IsPlayer(Collider c)
+    {
+        return c.CompareTag("Player") || (c.attachedRigidbody != null && c.attachedRigidbody.CompareTag("Player"));
+    }
+
     private void Start()
     {
         gma = GameManager.instance != null ? GameManager.instance : FindFirstObjectByType<GameManager>();

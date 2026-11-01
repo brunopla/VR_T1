@@ -22,6 +22,10 @@ Shooter de supervivencia contra zombies en realidad virtual para Meta Quest. Emp
 - **Agarrar un arma:** botón grip. **Disparar:** gatillo (la Uzi y la M4 disparan en automático mientras lo mantienes).
 - **Recargar:** apunta el arma al suelo un momento. La munición sale de la reserva compartida; las cajas de munición la rellenan. El número sobre el arma muestra las balas que quedan en el cargador.
 - **Tiros a la cabeza:** hacen el triple de daño.
+- **Cuchillos:** golpea con ellos o lánzalos; si van rápido se clavan en zombies y paredes.
+- **Martillo de Thor:** golpea, o lánzalo para una onda expansiva al impactar. Con **B / Y** vuelve en curva a la última mano que lo sostuvo y golpea a lo que encuentre en el camino.
+- **Barriles rojos:** explotan con disparos, golpes fuertes o el martillo, y hacen explotar a los barriles cercanos. También te hacen daño si estás cerca.
+- **Gancho:** apunta (aparece una mira verde), mantén el gatillo para engancharte y balancearte, y usa el **stick de esa mano** hacia arriba o abajo para recoger o soltar cuerda. Se engancha a cualquier superficie del escenario.
 - **Ganas** si llegas al helicóptero. **Pierdes** si te quedas sin vida o sin tiempo. En la pantalla final, aprieta el gatillo para continuar.
 
 ### Opciones de comodidad (botón menú del control izquierdo)
@@ -40,7 +44,8 @@ Las opciones se guardan entre partidas. En el editor, la tecla **M** hace lo mis
 Assets/Scripts/
   Core/      GameManager (estado de la partida, vida, munición, tiempo), VRHud (avisos, viñeta, pantalla final)
   Player/    PlayerHealth, ComfortSettings
-  Weapons/   Weapon + WeaponData (armas actuales), Hitbox, Magazine; Bspawn/Buspawn/Bullet (sistema antiguo)
+  Weapons/   Weapon + WeaponData (armas de fuego), MeleeWeapon (golpes y lanzables), ThorHammer,
+             ExplosiveBarrel, GrapplingGun, Hitbox, Magazine; Bspawn/Buspawn/Bullet (sistema antiguo)
   Enemies/   ZombieController, EnemySpawnPoint, WaveDirector (oleadas con pool)
   Level/     Port (portal del tutorial), PortHelicopter (victoria), Waypoint
 Assets/Data/Weapons/   Ajustes de cada arma (daño, cadencia, cargador, sonidos)
@@ -52,7 +57,8 @@ Assets/Editor/         VRT1Migration y QuestOptimizer (menú VR_T1)
 - **Menú VR_T1 en el editor:**
   - *Migrar armas y zombies:* convierte prefabs con el sistema antiguo de armas y agrega la hitbox de cabeza a los zombies. Se puede repetir sin problema.
   - *Optimizar para Quest:* ajustes de Android/OpenXR, calidad, límites de texturas, compresión de mallas y objetos estáticos.
-  - *Calcular occlusion culling (level_00).*
+  - *Calcular occlusion culling (level_00):* también marca los objetos estáticos.
+  - *Crear martillo, cuchillos y barriles:* genera los prefabs en `Assets/Prefabs/Gameplay/` y los coloca en las escenas (objeto `Gameplay (generado)`). El martillo y el barril son formas simples hasta que haya modelos propios; para cambiarlos, reemplaza las piezas visuales del prefab.
 
 ## Compilar para Quest
 

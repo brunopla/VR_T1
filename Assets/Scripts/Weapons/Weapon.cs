@@ -192,7 +192,7 @@ public class Weapon : MonoBehaviour
         for (int i = 0; i < count; i++)
         {
             var c = hits[i].collider;
-            if (hits[i].distance >= best || c.transform.IsChildOf(transform) || c.CompareTag("Player"))
+            if (hits[i].distance >= best || c.transform.IsChildOf(transform) || PlayerHealth.IsPlayer(c))
                 continue;
             if (c.isTrigger && c.GetComponent<Hitbox>() == null)
                 continue;

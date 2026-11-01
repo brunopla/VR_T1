@@ -167,6 +167,9 @@ public class ZombieController : MonoBehaviour, IDamageable
     {
         dead = true;
         StopAllCoroutines();
+        // Los cuchillos clavados no deben desaparecer con el zombie (vuelve al pool)
+        foreach (var stuck in GetComponentsInChildren<MeleeWeapon>())
+            stuck.Unstick();
         if (gm != null)
             gm.AddEnemyKill();
 
