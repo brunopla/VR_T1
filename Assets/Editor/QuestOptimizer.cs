@@ -36,6 +36,11 @@ public static class QuestOptimizer
     [MenuItem("VR_T1/Calcular occlusion culling (level_00)")]
     public static void BakeOcclusion()
     {
+        // El occlusion culling solo usa objetos marcados como estaticos
+        log = new StringBuilder();
+        MarkStatic(LevelScene);
+        Debug.Log("[QuestOptimizer] " + log);
+
         var scene = EditorSceneManager.OpenScene(LevelScene, OpenSceneMode.Single);
         StaticOcclusionCulling.Compute();
         EditorSceneManager.SaveScene(scene);
@@ -195,7 +200,8 @@ public static class QuestOptimizer
         log.AppendLine("Objetos estaticos en " + scenePath + ": " + count);
     }
 
-    // El objeto y todos sus padres solo tienen componentes de escenario (nada que se mueva)
+    // El objeto y todos sus padres solo tienen componentes que no lo mueven.
+    // Un Animator sin controlador (lo agrega el importador de FBX) no anima nada.
     static bool IsSceneryChain(Transform t)
     {
         for (; t != null; t = t.parent)
@@ -204,7 +210,10 @@ public static class QuestOptimizer
             {
                 if (c == null)
                     return false;
-                if (!(c is Transform || c is MeshFilter || c is MeshRenderer || c is Collider || c is LODGroup))
+                if (c is Animator animator && animator.runtimeAnimatorController == null)
+                    continue;
+                if (!(c is Transform || c is MeshFilter || c is MeshRenderer || c is Collider || c is LODGroup
+                      || c is AudioSource || c is Light || c is ReflectionProbe))
                     return false;
             }
         }

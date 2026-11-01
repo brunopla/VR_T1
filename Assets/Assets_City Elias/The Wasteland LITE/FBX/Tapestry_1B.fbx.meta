@@ -1,106 +1,237 @@
 fileFormatVersion: 2
 guid: 2c3290785503e9a4c9fcaea48512a16d
-timeCreated: 1471277832
-licenseType: Store
 ModelImporter:
-  serializedVersion: 19
-  fileIDToRecycleName:
-    100000: Awning_2A.001
-    100002: Awning_2A2.001
-    100004: Awning_2B.001
-    100006: Awning_2B2.001
-    100008: Hanging_Tapestry_1A
-    100010: Hanging_Tapestry_1A2
-    100012: Hanging_Tapestry_1B
-    100014: Hanging_Tapestry_1B2
-    100016: //RootNode
-    400000: Awning_2A.001
-    400002: Awning_2A2.001
-    400004: Awning_2B.001
-    400006: Awning_2B2.001
-    400008: Hanging_Tapestry_1A
-    400010: Hanging_Tapestry_1A2
-    400012: Hanging_Tapestry_1B
-    400014: Hanging_Tapestry_1B2
-    400016: //RootNode
-    2300000: Awning_2A.001
-    2300002: Awning_2A2.001
-    2300004: Awning_2B.001
-    2300006: Awning_2B2.001
-    2300008: Hanging_Tapestry_1A
-    2300010: Hanging_Tapestry_1A2
-    2300012: Hanging_Tapestry_1B
-    2300014: Hanging_Tapestry_1B2
-    3300000: Awning_2A.001
-    3300002: Awning_2A2.001
-    3300004: Awning_2B.001
-    3300006: Awning_2B2.001
-    3300008: Hanging_Tapestry_1A
-    3300010: Hanging_Tapestry_1A2
-    3300012: Hanging_Tapestry_1B
-    3300014: Hanging_Tapestry_1B2
-    4300000: Awning_2A2.001
-    4300002: Awning_2A.001
-    4300004: Awning_2B2.001
-    4300006: Awning_2B.001
-    4300008: Hanging_Tapestry_1B
-    4300010: Hanging_Tapestry_1B2
-    4300012: Hanging_Tapestry_1A2
-    4300014: Hanging_Tapestry_1A
-    6400000: Awning_2A.001
-    6400002: Awning_2A2.001
-    6400004: Awning_2B.001
-    6400006: Awning_2B2.001
-    6400008: Hanging_Tapestry_1A
-    6400010: Hanging_Tapestry_1A2
-    6400012: Hanging_Tapestry_1B
-    6400014: Hanging_Tapestry_1B2
+  serializedVersion: 24200
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Awning_2A.001
+  - first:
+      1: 100002
+    second: Awning_2A2.001
+  - first:
+      1: 100004
+    second: Awning_2B.001
+  - first:
+      1: 100006
+    second: Awning_2B2.001
+  - first:
+      1: 100008
+    second: Hanging_Tapestry_1A
+  - first:
+      1: 100010
+    second: Hanging_Tapestry_1A2
+  - first:
+      1: 100012
+    second: Hanging_Tapestry_1B
+  - first:
+      1: 100014
+    second: Hanging_Tapestry_1B2
+  - first:
+      1: 100016
+    second: //RootNode
+  - first:
+      4: 400000
+    second: Awning_2A.001
+  - first:
+      4: 400002
+    second: Awning_2A2.001
+  - first:
+      4: 400004
+    second: Awning_2B.001
+  - first:
+      4: 400006
+    second: Awning_2B2.001
+  - first:
+      4: 400008
+    second: Hanging_Tapestry_1A
+  - first:
+      4: 400010
+    second: Hanging_Tapestry_1A2
+  - first:
+      4: 400012
+    second: Hanging_Tapestry_1B
+  - first:
+      4: 400014
+    second: Hanging_Tapestry_1B2
+  - first:
+      4: 400016
+    second: //RootNode
+  - first:
+      23: 2300000
+    second: Awning_2A.001
+  - first:
+      23: 2300002
+    second: Awning_2A2.001
+  - first:
+      23: 2300004
+    second: Awning_2B.001
+  - first:
+      23: 2300006
+    second: Awning_2B2.001
+  - first:
+      23: 2300008
+    second: Hanging_Tapestry_1A
+  - first:
+      23: 2300010
+    second: Hanging_Tapestry_1A2
+  - first:
+      23: 2300012
+    second: Hanging_Tapestry_1B
+  - first:
+      23: 2300014
+    second: Hanging_Tapestry_1B2
+  - first:
+      33: 3300000
+    second: Awning_2A.001
+  - first:
+      33: 3300002
+    second: Awning_2A2.001
+  - first:
+      33: 3300004
+    second: Awning_2B.001
+  - first:
+      33: 3300006
+    second: Awning_2B2.001
+  - first:
+      33: 3300008
+    second: Hanging_Tapestry_1A
+  - first:
+      33: 3300010
+    second: Hanging_Tapestry_1A2
+  - first:
+      33: 3300012
+    second: Hanging_Tapestry_1B
+  - first:
+      33: 3300014
+    second: Hanging_Tapestry_1B2
+  - first:
+      43: 4300000
+    second: Awning_2A2.001
+  - first:
+      43: 4300002
+    second: Awning_2A.001
+  - first:
+      43: 4300004
+    second: Awning_2B2.001
+  - first:
+      43: 4300006
+    second: Awning_2B.001
+  - first:
+      43: 4300008
+    second: Hanging_Tapestry_1B
+  - first:
+      43: 4300010
+    second: Hanging_Tapestry_1B2
+  - first:
+      43: 4300012
+    second: Hanging_Tapestry_1A2
+  - first:
+      43: 4300014
+    second: Hanging_Tapestry_1A
+  - first:
+      64: 6400000
+    second: Awning_2A.001
+  - first:
+      64: 6400002
+    second: Awning_2A2.001
+  - first:
+      64: 6400004
+    second: Awning_2B.001
+  - first:
+      64: 6400006
+    second: Awning_2B2.001
+  - first:
+      64: 6400008
+    second: Hanging_Tapestry_1A
+  - first:
+      64: 6400010
+    second: Hanging_Tapestry_1A2
+  - first:
+      64: 6400012
+    second: Hanging_Tapestry_1B
+  - first:
+      64: 6400014
+    second: Hanging_Tapestry_1B2
+  externalObjects: {}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
-    resampleRotations: 1
+    resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations: []
     isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 1
-    meshCompression: 0
+    meshCompression: 1
     addColliders: 1
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importPhysicalCameras: 0
+    importVisibility: 0
     importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    generateMeshLods: 0
+    meshLodGenerationFlags: 0
+    maximumMeshLod: -1
+    meshOptimizationFlags: -1
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
+    strictVertexDataChecks: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -110,11 +241,19 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 0
   humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  importBlendShapeDeformPercent: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
