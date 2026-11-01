@@ -8,20 +8,22 @@ public class AmmoReload : MonoBehaviour
     public int ammoToReload;
     public void Awake()
     {
-        gm = FindObjectOfType<GameManager>();
+        gm = GameManager.instance != null ? GameManager.instance : FindFirstObjectByType<GameManager>();
     }
 
     public void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))
         {
-            // Sin arma agarrada, la municion va a la reserva de la Uzi
-            if (gm.SelectGun != null)
+            // Las armas antiguas (Bspawn) guardan su propia municion;
+            // el resto va a la reserva compartida
+            if (gm.SelectGun != null && gm.SelectedWeapon == null)
                 gm.SelectGun.ammo += ammoToReload;
             else
-                gm.ammo += ammoToReload;
+                gm.AddReserve(ammoToReload);
 
             gm.RefreshAmmo();
+            VRHud.Toast("+" + ammoToReload + " de munición", 1.5f);
             Destroy(gameObject);
         }
 

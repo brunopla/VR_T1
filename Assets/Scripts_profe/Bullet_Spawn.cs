@@ -31,7 +31,7 @@ public class Bullet_Spawn : MonoBehaviour
 
     private void Start()
     {
-        gm = FindObjectOfType<GameManager>();
+        gm = GameManager.instance != null ? GameManager.instance : FindFirstObjectByType<GameManager>();
 
         shoot = GetComponent<AudioSource>();
     }

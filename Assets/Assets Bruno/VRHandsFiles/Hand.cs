@@ -5,8 +5,11 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class Hand : MonoBehaviour
 {
+    // El rig del proyecto usa los controladores de XRI 2.x (obsoletos en XRI 3)
+#pragma warning disable 618
     [SerializeField]
     private ActionBasedController m_Controller = null;
+#pragma warning restore 618
     [SerializeField]
     private Animator m_Animator = null;
     [SerializeField]
