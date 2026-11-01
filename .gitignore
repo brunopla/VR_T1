@@ -58,3 +58,22 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+*.aab
+
+# Builds de Windows hechos en la raiz del proyecto
+/*.exe
+/UnityPlayer.dll
+/*_Data/
+/MonoBleedingEdge/
+/*_BurstDebugInformation_DoNotShip/
+
+# Claves de firma de Android: nunca al repositorio
+*.keystore
+*.jks
+
+# Ajustes locales de cada persona
+/[Uu]ser[Ss]ettings/
+.vscode/
+
+# Plugin descargado que no forma parte del proyecto
+/play-games-plugin-for-unity-master/
