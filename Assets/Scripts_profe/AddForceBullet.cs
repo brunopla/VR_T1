@@ -15,6 +15,6 @@ public class AddForceBullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rigid.velocity = transform.forward * speed;
+        rigid.linearVelocity = transform.forward * speed;
     }
 }

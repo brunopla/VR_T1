@@ -35,7 +35,7 @@ public class ThorHammer : MonoBehaviour
     {
 
         isReturning = true;
-        rb.velocity = Vector3.zero;
+        rb.linearVelocity = Vector3.zero;
         
         rb.isKinematic = true;
     }
