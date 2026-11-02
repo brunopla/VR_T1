@@ -25,6 +25,7 @@ Shooter de supervivencia contra zombies en realidad virtual para Meta Quest. Emp
 - **Cuchillos:** golpea con ellos o lánzalos; si van rápido se clavan en zombies y paredes.
 - **Martillo de Thor:** golpea, o lánzalo para una onda expansiva al impactar. Con **B / Y** vuelve en curva a la última mano que lo sostuvo y golpea a lo que encuentre en el camino.
 - **Barriles rojos:** explotan con disparos, golpes fuertes o el martillo, y hacen explotar a los barriles cercanos. También te hacen daño si estás cerca.
+- **Moto:** agarra un puño del manubrio para subirte. Con las dos manos en el manubrio giras moviéndolo como uno real; con una sola, usa el stick izquierdo. **Gatillo derecho** acelera, **gatillo izquierdo** frena y da marcha atrás, **A / X** te baja (hay que ir despacio). Atropellar zombies les hace daño según la velocidad. Solo se inclina la moto, no tu vista, para marear menos; la viñeta de comodidad se activa con la velocidad.
 - **Gancho:** apunta (aparece una mira verde), mantén el gatillo para engancharte y balancearte, y usa el **stick de esa mano** hacia arriba o abajo para recoger o soltar cuerda. Se engancha a cualquier superficie del escenario.
 - **Ganas** si llegas al helicóptero. **Pierdes** si te quedas sin vida o sin tiempo. En la pantalla final, aprieta el gatillo para continuar.
 
@@ -47,6 +48,7 @@ Assets/Scripts/
   Weapons/   Weapon + WeaponData (armas de fuego), MeleeWeapon (golpes y lanzables), ThorHammer,
              ExplosiveBarrel, GrapplingGun, Hitbox, Magazine; Bspawn/Buspawn/Bullet (sistema antiguo)
   Enemies/   ZombieController, EnemySpawnPoint, WaveDirector (oleadas con pool)
+  Vehicles/  Motorcycle
   Level/     Port (portal del tutorial), PortHelicopter (victoria), Waypoint
 Assets/Data/Weapons/   Ajustes de cada arma (daño, cadencia, cargador, sonidos)
 Assets/Editor/         VRT1Migration y QuestOptimizer (menú VR_T1)
@@ -58,7 +60,7 @@ Assets/Editor/         VRT1Migration y QuestOptimizer (menú VR_T1)
   - *Migrar armas y zombies:* convierte prefabs con el sistema antiguo de armas y agrega la hitbox de cabeza a los zombies. Se puede repetir sin problema.
   - *Optimizar para Quest:* ajustes de Android/OpenXR, calidad, límites de texturas, compresión de mallas y objetos estáticos.
   - *Calcular occlusion culling (level_00):* también marca los objetos estáticos.
-  - *Crear martillo, cuchillos y barriles:* genera los prefabs en `Assets/Prefabs/Gameplay/` y los coloca en las escenas (objeto `Gameplay (generado)`). El martillo y el barril son formas simples hasta que haya modelos propios; para cambiarlos, reemplaza las piezas visuales del prefab.
+  - *Crear martillo, cuchillos y barriles:* también crea la moto. Genera los prefabs en `Assets/Prefabs/Gameplay/` y los coloca en las escenas (objeto `Gameplay (generado)`). El martillo y el barril son formas simples hasta que haya modelos propios; para cambiarlos, reemplaza las piezas visuales del prefab.
 
 ## Compilar para Quest
 

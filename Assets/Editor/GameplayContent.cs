@@ -35,8 +35,11 @@ public static class GameplayContent
         var knife = CreateKnife();
         var barrel = CreateBarrel(explosion);
 
+        var motorcycle = CreateMotorcycle();
+
         PlaceInScene(Tutorial, hammer, knife, barrel, barrelsNearSpawns: false);
         PlaceInScene(Level, hammer, knife, barrel, barrelsNearSpawns: true);
+        PlaceVehicles(Level, motorcycle);
 
         AssetDatabase.SaveAssets();
         Debug.Log("[GameplayContent] Terminado\n" + log);
@@ -214,6 +217,159 @@ public static class GameplayContent
         var explosive = root.AddComponent<ExplosiveBarrel>();
         explosive.explosionEffect = explosion;
         return SavePrefab(root, "BarrilExplosivo");
+    }
+
+    static GameObject CreateMotorcycle()
+    {
+        var existing = AssetDatabase.LoadAssetAtPath<GameObject>(PrefabFolder + "/Moto.prefab");
+        if (existing != null)
+            return existing;
+
+        var paint = EnsureMaterial("MotoPintura", new Color(0.1f, 0.35f, 0.4f), 0.6f, 0.7f);
+        var black = EnsureMaterial("MotoNegro", new Color(0.05f, 0.05f, 0.05f), 0.1f, 0.3f);
+        var chrome = EnsureMaterial("MotoCromo", new Color(0.75f, 0.75f, 0.78f), 0.95f, 0.85f);
+
+        var root = new GameObject("Moto");
+        var slide = AssetDatabase.LoadAssetAtPath<PhysicsMaterial>(MaterialFolder + "/SinFriccion.physicMaterial");
+        if (slide == null)
+        {
+            slide = new PhysicsMaterial("SinFriccion")
+            {
+                dynamicFriction = 0f,
+                staticFriction = 0f,
+                frictionCombine = PhysicsMaterialCombine.Minimum
+            };
+            AssetDatabase.CreateAsset(slide, MaterialFolder + "/SinFriccion.physicMaterial");
+        }
+
+        // Capsula baja para pasar sobre bordillos y caja para el cuerpo (atropellar)
+        var capsule = root.AddComponent<CapsuleCollider>();
+        capsule.direction = 2;
+        capsule.radius = 0.3f;
+        capsule.height = 1.9f;
+        capsule.center = new Vector3(0f, 0.3f, 0f);
+        capsule.sharedMaterial = slide;
+        var box = root.AddComponent<BoxCollider>();
+        box.center = new Vector3(0f, 0.75f, 0f);
+        box.size = new Vector3(0.35f, 0.5f, 1.4f);
+        box.sharedMaterial = slide;
+
+        var visual = new GameObject("Visual").transform;
+        visual.SetParent(root.transform, false);
+        var rear = NoCollider(Part(PrimitiveType.Cylinder, "RuedaTrasera", visual, new Vector3(0f, 0.33f, -0.7f), new Vector3(0.66f, 0.06f, 0.66f), black));
+        rear.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
+        NoCollider(Part(PrimitiveType.Cube, "Chasis", visual, new Vector3(0f, 0.6f, -0.05f), new Vector3(0.26f, 0.3f, 1.0f), paint));
+        NoCollider(Part(PrimitiveType.Cube, "Tanque", visual, new Vector3(0f, 0.85f, 0.2f), new Vector3(0.34f, 0.22f, 0.45f), paint));
+        NoCollider(Part(PrimitiveType.Cube, "Asiento", visual, new Vector3(0f, 0.85f, -0.35f), new Vector3(0.3f, 0.09f, 0.55f), black));
+        var exhaust = NoCollider(Part(PrimitiveType.Cylinder, "Escape", visual, new Vector3(0.2f, 0.4f, -0.55f), new Vector3(0.08f, 0.3f, 0.08f), chrome));
+        exhaust.transform.localRotation = Quaternion.Euler(80f, 0f, 0f);
+
+        var steering = new GameObject("Direccion").transform;
+        steering.SetParent(visual, false);
+        steering.localPosition = new Vector3(0f, 0.9f, 0.55f);
+        var fork = NoCollider(Part(PrimitiveType.Cylinder, "Horquilla", steering, new Vector3(0f, -0.3f, 0.08f), new Vector3(0.06f, 0.3f, 0.06f), chrome));
+        fork.transform.localRotation = Quaternion.Euler(15f, 0f, 0f);
+        var front = NoCollider(Part(PrimitiveType.Cylinder, "RuedaDelantera", steering, new Vector3(0f, -0.57f, 0.15f), new Vector3(0.66f, 0.06f, 0.66f), black));
+        front.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
+        var bar = NoCollider(Part(PrimitiveType.Cylinder, "Manubrio", steering, new Vector3(0f, 0.15f, -0.05f), new Vector3(0.035f, 0.36f, 0.035f), chrome));
+        bar.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
+        var leftGrip = CreateGrip("PunoIzquierdo", steering, new Vector3(-0.33f, 0.15f, -0.05f), black);
+        var rightGrip = CreateGrip("PunoDerecho", steering, new Vector3(0.33f, 0.15f, -0.05f), black);
+
+        var head = new GameObject("CabezaPiloto").transform;
+        head.SetParent(root.transform, false);
+        head.localPosition = new Vector3(0f, 1.55f, -0.25f);
+
+        var body = root.AddComponent<Rigidbody>();
+        body.mass = 180f;
+        body.interpolation = RigidbodyInterpolation.Interpolate;
+        body.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
+
+        var audio = root.AddComponent<AudioSource>();
+        audio.playOnAwake = false;
+        audio.spatialBlend = 1f;
+        audio.minDistance = 2f;
+        audio.maxDistance = 30f;
+
+        var moto = root.AddComponent<Motorcycle>();
+        moto.visual = visual;
+        moto.steeringPivot = steering;
+        moto.leftGrip = leftGrip;
+        moto.rightGrip = rightGrip;
+        moto.riderHead = head;
+        moto.wheels = new[] { rear.transform, front.transform };
+        moto.engineAudio = audio;
+        return SavePrefab(root, "Moto");
+    }
+
+    static GameObject NoCollider(GameObject go)
+    {
+        Object.DestroyImmediate(go.GetComponent<Collider>());
+        return go;
+    }
+
+    static XRSimpleInteractable CreateGrip(string name, Transform parent, Vector3 position, Material material)
+    {
+        var grip = new GameObject(name);
+        grip.transform.SetParent(parent, false);
+        grip.transform.localPosition = position;
+        var visual = NoCollider(Part(PrimitiveType.Cylinder, "Visual", grip.transform, Vector3.zero, new Vector3(0.045f, 0.06f, 0.045f), material));
+        visual.transform.localRotation = Quaternion.Euler(0f, 0f, 90f);
+        var trigger = grip.AddComponent<SphereCollider>();
+        trigger.isTrigger = true;
+        trigger.radius = 0.08f;
+        return grip.AddComponent<XRSimpleInteractable>();
+    }
+
+    const string VehiclesRoot = "Vehiculos (generado)";
+
+    // Una moto cerca de las armas y dos en puntos de aparicion lejanos
+    static void PlaceVehicles(string scenePath, GameObject motorcycle)
+    {
+        var scene = EditorSceneManager.OpenScene(scenePath, OpenSceneMode.Single);
+        foreach (var root in scene.GetRootGameObjects())
+        {
+            if (root.name == VehiclesRoot)
+            {
+                log.AppendLine("Motos ya colocadas en " + scenePath);
+                return;
+            }
+        }
+
+        var container = new GameObject(VehiclesRoot);
+        int placed = 0;
+        var weapon = Object.FindFirstObjectByType<Weapon>();
+        Vector3 start = weapon != null ? weapon.transform.position : Vector3.zero;
+        if (weapon != null && NavMesh.SamplePosition(start - weapon.transform.right * 3f, out NavMeshHit near, 4f, NavMesh.AllAreas))
+        {
+            InstantiateFacing(motorcycle, container, near.position + Vector3.up * 0.05f, weapon.transform.forward);
+            placed++;
+        }
+
+        var points = new System.Collections.Generic.List<EnemySpawnPoint>(Object.FindObjectsByType<EnemySpawnPoint>(FindObjectsSortMode.None));
+        points.Sort((a, b) => Vector3.Distance(b.transform.position, start).CompareTo(Vector3.Distance(a.transform.position, start)));
+        for (int i = 0; i < points.Count && placed < 3; i++)
+        {
+            Vector3 offset = Quaternion.Euler(0f, -60f, 0f) * Vector3.forward * 5f;
+            if (NavMesh.SamplePosition(points[i].transform.position + offset, out NavMeshHit hit, 4f, NavMesh.AllAreas))
+            {
+                InstantiateFacing(motorcycle, container, hit.position + Vector3.up * 0.05f, (start - hit.position).normalized);
+                placed++;
+                i++; // separar las motos: saltar el siguiente punto mas lejano
+            }
+        }
+
+        EditorSceneManager.SaveScene(scene);
+        log.AppendLine("Motos colocadas en " + scenePath + ": " + placed);
+    }
+
+    static void InstantiateFacing(GameObject prefab, GameObject parent, Vector3 position, Vector3 forward)
+    {
+        Instantiate(prefab, parent, position);
+        var instance = parent.transform.GetChild(parent.transform.childCount - 1);
+        forward = Vector3.ProjectOnPlane(forward, Vector3.up);
+        if (forward.sqrMagnitude > 0.001f)
+            instance.rotation = Quaternion.LookRotation(forward, Vector3.up);
     }
 
     static Bounds LocalBounds(Transform root)
