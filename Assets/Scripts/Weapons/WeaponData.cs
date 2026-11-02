@@ -13,6 +13,8 @@ public class WeaponData : ScriptableObject
     [Tooltip("Apertura del disparo en grados")]
     public float spreadAngle = 0f;
     public float range = 100f;
+    [Tooltip("Enemigos que atraviesa cada bala (francotirador > 1)")]
+    public int penetration = 1;
 
     [Header("Cadencia")]
     [Tooltip("Sigue disparando mientras se mantiene el gatillo")]

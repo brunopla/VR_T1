@@ -68,6 +68,8 @@ public class MeleeWeapon : MonoBehaviour
 
     void OnGrabbed(SelectEnterEventArgs args)
     {
+        if (args.interactorObject is XRSocketInteractor)
+            return;
         holder = args.interactorObject;
         // XRGrabInteractable guarda si el cuerpo era cinematico al agarrarlo;
         // si estaba clavado hay que devolverle la fisica al soltarlo
@@ -81,6 +83,8 @@ public class MeleeWeapon : MonoBehaviour
 
     void OnReleased(SelectExitEventArgs args)
     {
+        if (args.interactorObject is XRSocketInteractor)
+            return;
         holder = null;
         if (restoreDynamicOnRelease)
         {
@@ -121,6 +125,9 @@ public class MeleeWeapon : MonoBehaviour
         if (lastHitTime.TryGetValue(target, out float last) && Time.time - last < hitCooldown)
             return;
         lastHitTime[target] = Time.time;
+        TrainingEvents.Raise("golpe");
+        if (target is TrainingTarget trainingTarget)
+            TrainingEvents.Raise("golpe:" + trainingTarget.group);
 
         float amount = damage * Mathf.Lerp(0.3f, 1f, Mathf.InverseLerp(minSpeed, fullDamageSpeed, speed));
         if (hitbox != null)

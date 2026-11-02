@@ -293,7 +293,7 @@ MonoBehaviour:
   lateLatchingDebug: 0
   optimizeMultiviewRenderRegions: 0
   multiviewRenderRegionsOptimizationMode: 0
-  m_hasMigratedMultiviewRenderRegions: 0
+  m_hasMigratedMultiviewRenderRegions: 1
   spacewarpMotionVectorTextureFormat: 0
 --- !u!114 &-2232885789855491180
 MonoBehaviour:
@@ -540,24 +540,24 @@ MonoBehaviour:
   m_Name: Android
   m_EditorClassIdentifier: 
   features:
-  - {fileID: -7674508053051762473}
-  - {fileID: -3502099236928577644}
-  - {fileID: -981525626352747680}
   - {fileID: 6242913150819894580}
-  - {fileID: -3860594676787392252}
-  - {fileID: -2232885789855491180}
-  - {fileID: -8836820377717617843}
-  - {fileID: 8492826529728722749}
-  - {fileID: -5767977685936029315}
-  - {fileID: 4815226510624003638}
-  - {fileID: -7427466536936829630}
   - {fileID: 4310264273757854841}
+  - {fileID: -981525626352747680}
   - {fileID: -9126885892306383954}
+  - {fileID: -7427466536936829630}
+  - {fileID: 8492826529728722749}
+  - {fileID: -3860594676787392252}
   - {fileID: -3609308022607206273}
+  - {fileID: -3502099236928577644}
+  - {fileID: -5767977685936029315}
+  - {fileID: -2232885789855491180}
   - {fileID: 8076225163562994834}
+  - {fileID: -7674508053051762473}
   - {fileID: -7005150528561910902}
   - {fileID: 2763141596687264870}
+  - {fileID: -8836820377717617843}
   - {fileID: 2780010502671569683}
+  - {fileID: 4815226510624003638}
   m_renderMode: 1
   m_latencyOptimization: 0
   m_autoColorSubmissionMode: 1

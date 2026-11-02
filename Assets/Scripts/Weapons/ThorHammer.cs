@@ -62,6 +62,8 @@ public class ThorHammer : MonoBehaviour
 
     void OnGrabbed(SelectEnterEventArgs args)
     {
+        if (args.interactorObject is XRSocketInteractor)
+            return;
         lastHolder = args.interactorObject;
     }
 
@@ -112,6 +114,7 @@ public class ThorHammer : MonoBehaviour
             grab.interactionManager.SelectEnter(lastHolder, (IXRSelectInteractable)grab);
             if (lastHolder is XRBaseInputInteractor input)
                 input.SendHapticImpulse(0.8f, 0.12f);
+            TrainingEvents.Raise("martillo_vuelve");
         }
     }
 

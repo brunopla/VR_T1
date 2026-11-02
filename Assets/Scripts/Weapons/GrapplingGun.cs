@@ -102,10 +102,16 @@ public class GrapplingGun : MonoBehaviour
             Destroy(reticle.gameObject);
     }
 
-    void OnGrabbed(SelectEnterEventArgs args) => holder = args.interactorObject;
+    void OnGrabbed(SelectEnterEventArgs args)
+    {
+        if (!(args.interactorObject is XRSocketInteractor))
+            holder = args.interactorObject;
+    }
 
     void OnReleased(SelectExitEventArgs args)
     {
+        if (args.interactorObject is XRSocketInteractor)
+            return;
         holder = null;
         StopGrapple();
     }
@@ -181,6 +187,7 @@ public class GrapplingGun : MonoBehaviour
         if (lr != null)
             lr.positionCount = 2;
         SendHaptics(0.6f, 0.1f);
+        TrainingEvents.Raise("gancho");
         ProceduralSfx.Play(ProceduralSfx.Kind.Hit, grapplePoint, 0.5f);
     }
 

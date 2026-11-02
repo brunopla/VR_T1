@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Pool;
@@ -108,15 +109,31 @@ public class Weapon : MonoBehaviour
 
     void OnGrabbed(SelectEnterEventArgs args)
     {
-        holder = args.interactorObject;
+        // Una funda no "sostiene" el arma: no cuenta como mano
+        if (args.interactorObject is XRSocketInteractor)
+            return;
+        TrainingEvents.Raise("agarrar");
+        if (data != null)
+            TrainingEvents.Raise("agarrar:" + data.displayName);
+        // Con dos manos (francotirador) manda la primera que agarro el arma
+        if (holder == null)
+            holder = args.interactorObject;
         if (GameManager.instance != null)
             GameManager.instance.SelectWeapon(this);
     }
 
     void OnReleased(SelectExitEventArgs args)
     {
+        if (args.interactorObject is XRSocketInteractor)
+            return;
         if (args.interactorObject != holder)
             return;
+        // Si la otra mano sigue sujetando, pasa a ser la principal
+        if (grab.interactorsSelecting.Count > 0)
+        {
+            holder = grab.interactorsSelecting[0];
+            return;
+        }
         holder = null;
         triggerHeld = false;
         if (GameManager.instance != null)
@@ -162,17 +179,12 @@ public class Weapon : MonoBehaviour
 
         Ammo--;
         RefreshAmmo();
+        TrainingEvents.Raise("disparo");
 
         for (int i = 0; i < Mathf.Max(1, data.pellets); i++)
         {
             Vector3 direction = Spread(muzzle.forward, data.spreadAngle);
-            Vector3 end = muzzle.position + direction * data.range;
-            if (Raycast(muzzle.position, direction, out RaycastHit hit))
-            {
-                end = hit.point;
-                ApplyHit(hit);
-            }
-            ShowTracer(muzzle.position, end);
+            ShowTracer(muzzle.position, FireRay(muzzle.position, direction));
         }
 
         PlayClip(data.shotClip);
@@ -182,24 +194,50 @@ public class Weapon : MonoBehaviour
         return true;
     }
 
-    // El primer impacto que no sea el arma ni el jugador. Los triggers solo
-    // cuentan si son Hitbox (la cabeza de los zombies es un trigger)
-    bool Raycast(Vector3 origin, Vector3 direction, out RaycastHit closest)
+    static readonly HashSet<IDamageable> piercedTargets = new HashSet<IDamageable>();
+
+    // Dispara un rayo: golpea hasta 'penetration' enemigos en orden de distancia
+    // y se detiene en la primera pared. Ignora el arma y al jugador; los
+    // triggers solo cuentan si son Hitbox (la cabeza de los zombies es un
+    // trigger). Devuelve donde termina la estela.
+    Vector3 FireRay(Vector3 origin, Vector3 direction)
     {
-        closest = default;
         int count = Physics.RaycastNonAlloc(origin, direction, hits, data.range, hitMask, QueryTriggerInteraction.Collide);
-        float best = float.MaxValue;
+        System.Array.Sort(hits, 0, count, HitDistanceComparer.Instance);
+        Vector3 end = origin + direction * data.range;
+        int pierced = 0;
+        piercedTargets.Clear();
+
         for (int i = 0; i < count; i++)
         {
             var c = hits[i].collider;
-            if (hits[i].distance >= best || c.transform.IsChildOf(transform) || PlayerHealth.IsPlayer(c))
+            if (c.transform.IsChildOf(transform) || PlayerHealth.IsPlayer(c))
                 continue;
             if (c.isTrigger && c.GetComponent<Hitbox>() == null)
                 continue;
-            best = hits[i].distance;
-            closest = hits[i];
+
+            var target = c.GetComponentInParent<IDamageable>();
+            if (target == null)
+            {
+                ApplyHit(hits[i]);
+                return hits[i].point;
+            }
+            // La cabeza y el cuerpo del mismo zombie cuentan como un solo enemigo
+            if (!piercedTargets.Add(target))
+                continue;
+
+            ApplyHit(hits[i]);
+            end = hits[i].point;
+            if (++pierced >= Mathf.Max(1, data.penetration))
+                break;
         }
-        return best < float.MaxValue;
+        return end;
+    }
+
+    class HitDistanceComparer : IComparer<RaycastHit>
+    {
+        public static readonly HitDistanceComparer Instance = new HitDistanceComparer();
+        public int Compare(RaycastHit a, RaycastHit b) => a.distance.CompareTo(b.distance);
     }
 
     void ApplyHit(RaycastHit hit)
@@ -246,6 +284,7 @@ public class Weapon : MonoBehaviour
 
     void OnReloaded()
     {
+        TrainingEvents.Raise("recarga");
         RefreshAmmo();
         PlayClip(data.reloadClip);
         SendHaptics(0.3f, 0.05f);

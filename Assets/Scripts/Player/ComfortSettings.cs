@@ -122,6 +122,7 @@ public class ComfortSettings : MonoBehaviour
         PlayerPrefs.SetInt(SnapTurnKey, value ? 1 : 0);
         Apply();
         VRHud.Toast(value ? "Giro por pasos" : "Giro continuo");
+        TrainingEvents.Raise("comodidad");
     }
 
     public void SetSeated(bool value)
@@ -130,6 +131,7 @@ public class ComfortSettings : MonoBehaviour
         PlayerPrefs.SetInt(SeatedKey, value ? 1 : 0);
         Apply();
         VRHud.Toast(value ? "Modo sentado" : "Modo de pie");
+        TrainingEvents.Raise("comodidad");
     }
 
     public void SetVignette(bool value)
@@ -137,6 +139,7 @@ public class ComfortSettings : MonoBehaviour
         Vignette = value;
         PlayerPrefs.SetInt(VignetteKey, value ? 1 : 0);
         VRHud.Toast(value ? "Viñeta al moverse: sí" : "Viñeta al moverse: no");
+        TrainingEvents.Raise("comodidad");
     }
 
     void Apply()

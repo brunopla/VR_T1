@@ -59,6 +59,7 @@ public class ExplosiveBarrel : MonoBehaviour, IDamageable
             Destroy(effect, 4f);
         }
         ProceduralSfx.Play(ProceduralSfx.Kind.Explosion, center, 1f);
+        TrainingEvents.Raise("explosion");
 
         var damaged = new HashSet<IDamageable>();
         var pushed = new HashSet<Rigidbody>();
