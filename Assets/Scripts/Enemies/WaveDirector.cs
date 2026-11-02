@@ -17,6 +17,8 @@ public class WaveDirector : MonoBehaviour
     public float timeBetweenWaves = 10f;
     [Tooltip("No aparecen zombies mas cerca que esto del jugador")]
     public float minDistanceToPlayer = 8f;
+    [Tooltip("Ni mas lejos que esto (en la ciudad ampliada tardarian demasiado en llegar)")]
+    public float maxDistanceToPlayer = 60f;
 
     readonly Dictionary<GameObject, ObjectPool<ZombieController>> pools = new Dictionary<GameObject, ObjectPool<ZombieController>>();
     readonly List<EnemySpawnPoint> points = new List<EnemySpawnPoint>();
@@ -77,16 +79,35 @@ public class WaveDirector : MonoBehaviour
         return true;
     }
 
+    readonly List<EnemySpawnPoint> candidates = new List<EnemySpawnPoint>();
+
+    // Un punto al azar en el anillo [min, max] alrededor del jugador; si no hay,
+    // el mas cercano que este fuera de la distancia minima
     EnemySpawnPoint PickPoint()
     {
-        // Preferir puntos lejos del jugador
-        for (int tries = 0; tries < 8; tries++)
+        if (player == null)
+            return points[Random.Range(0, points.Count)];
+
+        candidates.Clear();
+        EnemySpawnPoint nearest = null;
+        float nearestDistance = float.MaxValue;
+        foreach (var point in points)
         {
-            var candidate = points[Random.Range(0, points.Count)];
-            if (player == null || Vector3.Distance(candidate.transform.position, player.position) >= minDistanceToPlayer)
-                return candidate;
+            float distance = Vector3.Distance(point.transform.position, player.position);
+            if (distance < minDistanceToPlayer)
+                continue;
+            if (distance <= maxDistanceToPlayer)
+                candidates.Add(point);
+            if (distance < nearestDistance)
+            {
+                nearestDistance = distance;
+                nearest = point;
+            }
         }
-        return points[Random.Range(0, points.Count)];
+
+        if (candidates.Count > 0)
+            return candidates[Random.Range(0, candidates.Count)];
+        return nearest != null ? nearest : points[Random.Range(0, points.Count)];
     }
 
     ObjectPool<ZombieController> GetPool(GameObject prefab)

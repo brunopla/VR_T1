@@ -13,7 +13,7 @@ Shooter de supervivencia contra zombies en realidad virtual para Meta Quest. Emp
 | Escena | Qué es |
 |---|---|
 | `Assets/Scenes/Prototipable.unity` | Tutorial (índice 0). El portal lleva al nivel. |
-| `Assets/Scenes/level_00.unity` | Nivel de la ciudad (índice 1). |
+| `Assets/Scenes/level_00.unity` | Nivel de la ciudad (índice 1): la ciudad original al centro, rodeada por 240 manzanas generadas (unos 578 × 573 m, 9 veces el área original). |
 | `Assets/Scenes/LVL_design/` | Versiones de la rama `LVL_design` guardadas aparte para comparar; no están en el build. |
 
 ## Cómo se juega
@@ -49,9 +49,10 @@ Assets/Scripts/
              ExplosiveBarrel, GrapplingGun, Hitbox, Magazine; Bspawn/Buspawn/Bullet (sistema antiguo)
   Enemies/   ZombieController, EnemySpawnPoint, WaveDirector (oleadas con pool)
   Vehicles/  Motorcycle
-  Level/     Port (portal del tutorial), PortHelicopter (victoria), Waypoint
+  Level/     Port (portal del tutorial), PortHelicopter (victoria), Waypoint,
+             CityDistrict + CityStreamer (barrios que se encienden y apagan según la distancia)
 Assets/Data/Weapons/   Ajustes de cada arma (daño, cadencia, cargador, sonidos)
-Assets/Editor/         VRT1Migration y QuestOptimizer (menú VR_T1)
+Assets/Editor/         VRT1Migration, QuestOptimizer, GameplayContent y CityExpander (menú VR_T1)
 ```
 
 - **Ajustar un arma:** edita su asset en `Assets/Data/Weapons/`.
@@ -61,6 +62,17 @@ Assets/Editor/         VRT1Migration y QuestOptimizer (menú VR_T1)
   - *Optimizar para Quest:* ajustes de Android/OpenXR, calidad, límites de texturas, compresión de mallas y objetos estáticos.
   - *Calcular occlusion culling (level_00):* también marca los objetos estáticos.
   - *Crear martillo, cuchillos y barriles:* también crea la moto. Genera los prefabs en `Assets/Prefabs/Gameplay/` y los coloca en las escenas (objeto `Gameplay (generado)`). El martillo y el barril son formas simples hasta que haya modelos propios; para cambiarlos, reemplaza las piezas visuales del prefab.
+
+  - *Ampliar ciudad (level_00):* regenera los barrios alrededor de la ciudad original y recalcula la NavMesh. Borra y rehace lo generado antes (`Ciudad ampliada (generado)` y `Puntos de aparicion (ampliacion)`), así que no edites a mano dentro de esos objetos. Después conviene volver a calcular el occlusion culling.
+  - *Calcular NavMesh de la ciudad:* solo la NavMesh (componente `NavMesh Ciudad`).
+
+### La ciudad ampliada
+
+- Usa las mismas piezas que la original, alineadas con sus calles: cruces y calles cada 38 m, casas, galpones y edificios de concreto, plazas con postes para el gancho, ruinas, estacionamientos, faroles, autos abandonados y barriles. La generación usa una semilla fija, así que siempre sale igual.
+- Para que Quest aguante, en las afueras predominan las casas y galpones (los edificios modulares altos tienen cientos de renderers cada uno). Los barrios (de 3 × 3 manzanas) se encienden a menos de 80 m del jugador y se apagan a más de 100 m; la niebla de la escena tapa todo a partir de unos 75 m.
+- Los muros fortificados y las paredes invisibles del borde original se desactivaron; el piso original (`City_Prefab/colisiones/Cube`) sigue activo.
+- Los zombies aparecen entre 8 y 60 m del jugador, en cualquier parte de la ciudad.
+- Los barrios nuevos solo tienen luz en tiempo real (la ciudad original conserva sus lightmaps), así que pueden verse un poco distintos.
 
 ## Compilar para Quest
 
